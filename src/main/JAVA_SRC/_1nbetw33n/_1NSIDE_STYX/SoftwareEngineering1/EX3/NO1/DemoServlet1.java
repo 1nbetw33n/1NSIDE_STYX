@@ -11,19 +11,24 @@
  *
  */
 
-package _1nbetw33n._1NSIDE_STYX.SOFTWARE_ENGINEERING1;
+package _1nbetw33n._1NSIDE_STYX.SoftwareEngineering1.EX3.NO1;
 
 import java.io.*;
+import javax.servlet.ServletException;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 
-@WebServlet(name = "helloServlet", value = "/hello-servlet")
-public class HelloServlet extends HttpServlet {
+@WebServlet(name = "demoServlet1", value = "/demo-servlet1")
+// name = "..." seems to be a dev comment with no synergy with something else
+// value = "/..." must be exactly like <a href = "..." .../a> in index.jsp
+public class DemoServlet1 extends HttpServlet {
+
     private String message;
 
-    public void init() {
-        message = "Hello World!";
+    public void init() throws ServletException {
+        this.message = "Hello World!";
     }
+
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
@@ -35,5 +40,7 @@ public class HelloServlet extends HttpServlet {
         out.println("</body></html>");
     }
 
-    final public void destroy() {System.out.println("SERVER ANNIHILATED");}
+    public void destroy() { System.out.println("Annihilated Server"); }
+
 }
+

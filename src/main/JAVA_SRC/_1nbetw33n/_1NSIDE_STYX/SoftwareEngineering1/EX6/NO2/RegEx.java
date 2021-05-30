@@ -1,6 +1,6 @@
 package _1nbetw33n._1NSIDE_STYX.SoftwareEngineering1.EX6.NO2;
 
-public class RegEx implements main.personal_spaces.bella.exercise6.no2.RegExable {
+public class RegEx implements RegExable {
 
     private StringBuilder regEx;
 

@@ -11,14 +11,14 @@
  *
  */
 
-package _1nbetw33n._1NSIDE_STYX.SoftwareEngineering._1NSIDE_STYX;
+package _1nbetw33n._1NSIDE_STYX.SOFTWARE_ENGINEERING1;
 
 import java.io.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 
 @WebServlet(name = "helloServlet", value = "/hello-servlet")
-public class HelloServlet extends HttpServlet {
+public class Updated repoHelloServlet extends HttpServlet {
     private String message;
 
     public void init() {

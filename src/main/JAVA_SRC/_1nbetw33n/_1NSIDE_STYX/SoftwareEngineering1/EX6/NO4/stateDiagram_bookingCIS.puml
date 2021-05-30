@@ -1,0 +1,78 @@
+@startuml
+
+title __**stateDiagram booking in CIS**__
+state forkBooking <<fork>>
+state forkVisaValidity <<fork>>
+state forkPaymentOptions <<fork>>
+state forkAuthorizationApproval <<fork>>
+state forkDecline <<fork>>
+
+visaCheck : entry / enter credentials
+visaCheck : do / perform visa check
+visaCheck : exit / redirection
+
+visaInvalidError : entry / display error message
+visaInvalidError : do / offer support
+
+bookConference : entry / enter key words
+bookConference : do / return results
+bookConference : exit / choose conference
+
+PaymentType : entry / do credit check
+PaymentType : do / display options depending on credit check
+PaymentType : exit / choose preferred option
+
+SEPA : entry / enter credentials
+SEPA : exit / authorization request to card network
+
+CreditCard : entry / enter credentials
+CreditCard : exit / authorization request to card network
+
+Authorization : entry / card network submits request to issuer
+Authorization : do / issuer approves/disapproves transaction
+Authorization : exit / display result of request
+
+Accept : entry / card network forwards authorization request to institute
+Accept : do / institute forwards positive response to PaymentInterface
+Accept : exit / display booking overview
+
+Decline : entry / card network forwards authorization request to institute
+Decline : do / institute forwards negative response to PaymentInterface
+Decline : exit / booking process failed. offer cancel or choose a different payment option
+
+checkOut : entry / display result of booking process
+checkOut : exit / return to homepage
+
+
+
+[*] --> forkBooking
+
+forkBooking --> bookConference : [book national]
+forkBooking --> visaCheck : [book international]
+
+visaCheck --> forkVisaValidity
+forkVisaValidity --> bookConference : [is valid]
+forkVisaValidity --> visaInvalidError : [is invalid]
+bookConference --> PaymentType : redirection to payment
+
+PaymentType --> forkPaymentOptions
+forkPaymentOptions --> SEPA : [is SEPA]
+forkPaymentOptions --> CreditCard : [is credit card]
+SEPA --> Authorization : contacting HypoBank
+CreditCard --> Authorization : contacting EasyCredit
+
+Authorization --> forkAuthorizationApproval
+forkAuthorizationApproval --> Accept : [issuer approved request]
+forkAuthorizationApproval --> Decline : [issuer disapproved request]
+
+Accept --> checkOut : successfully booked
+Decline --> forkDecline
+forkDecline --> checkOut : [cancel booking]
+forkDecline --> PaymentType : return to payment options
+visaInvalidError --> checkOut : visa check failed
+
+checkOut --> [*]
+
+@enduml
+
+

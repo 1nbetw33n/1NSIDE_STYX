@@ -18,7 +18,7 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 
 @WebServlet(name = "helloServlet", value = "/hello-servlet")
-public class Updated repoHelloServlet extends HttpServlet {
+public class HelloServlet extends HttpServlet {
     private String message;
 
     public void init() {

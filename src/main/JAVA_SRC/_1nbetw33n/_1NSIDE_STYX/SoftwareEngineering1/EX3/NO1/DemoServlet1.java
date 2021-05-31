@@ -40,7 +40,7 @@ public class DemoServlet1 extends HttpServlet {
         out.println("</body></html>");
     }
 
-    public void destroy() { System.out.println("Annihilated Server"); }
+    public void destroy() { System.out.println("Annihilated Server. Nothing will remain of this entity"); }
 
 }
 

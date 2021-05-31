@@ -37,6 +37,6 @@ final public class DemoServlet2 extends HttpServlet {
 
     }
 
-    final public void destroy(){ System.out.println("Annihilated Server. Nothing will remind you of this entity"); }
+    final public void destroy(){ System.out.println("Annihilated Server. Nothing will remain of this entity"); }
 
 }

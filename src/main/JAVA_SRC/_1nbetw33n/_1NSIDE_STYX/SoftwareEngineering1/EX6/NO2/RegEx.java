@@ -4,42 +4,42 @@ public class RegEx implements RegExable {
 
     private StringBuilder regEx;
 
-    public RegEx(final String REGEX){
+    protected RegEx(final String REGEX){
         this.regEx.append(REGEX);
     }
 
 
-    public boolean regExZIP() {
+    public boolean validateRegExZIP() {
         return false;
     }
 
 
-    public boolean regExPhoneNumber() {
+    public boolean validateRegExPhoneNumber() {
         return false;
     }
 
 
-    public boolean regExLicensePlate() {
+    public boolean validateRegExLicensePlate() {
         return false;
     }
 
 
-    public boolean regExZipMailAddress() {
+    public boolean validateRegExMailAddress() {
         return false;
     }
 
 
-    public boolean regExURL() {
+    public boolean validateRegExURL() {
         return false;
     }
 
 
-    public boolean regExZipJavaDevComment() {
+    public boolean validateRegExJavaDevComment() {
         return false;
     }
 
 
-    public boolean regExZipJavaClassName() {
+    public boolean validateRegExJavaClassName() {
         return false;
     }
 }

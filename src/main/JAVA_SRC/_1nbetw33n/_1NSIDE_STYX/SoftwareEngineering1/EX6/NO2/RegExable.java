@@ -2,24 +2,24 @@ package _1nbetw33n._1NSIDE_STYX.SoftwareEngineering1.EX6.NO2;
 
 public interface RegExable {
 
-    boolean regExZIP();
+    boolean validateRegExZIP();
 
 
-    boolean regExPhoneNumber();
+    boolean validateRegExPhoneNumber();
 
 
-    boolean regExLicensePlate();
+    boolean validateRegExLicensePlate();
 
 
-    boolean regExZipMailAddress();
+    boolean validateRegExMailAddress();
 
 
-    boolean regExURL();
+    boolean validateRegExURL();
 
 
-    boolean regExZipJavaDevComment();
+    boolean validateRegExJavaDevComment();
 
 
-    boolean regExZipJavaClassName();
+    boolean validateRegExJavaClassName();
 
 }

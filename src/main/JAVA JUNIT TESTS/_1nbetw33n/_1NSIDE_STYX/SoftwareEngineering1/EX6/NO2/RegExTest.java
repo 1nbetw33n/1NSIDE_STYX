@@ -1,66 +1,73 @@
 package _1nbetw33n._1NSIDE_STYX.SoftwareEngineering1.EX6.NO2;
 
-import jdk.nashorn.internal.runtime.regexp.joni.Regex;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 final class RegExTest {
 
-    private Regex RegExZIP;
+    private RegEx RegExZIP;
+    private Long  counter;
 
     @BeforeEach
     void setUp(){
-        this.RegExZIP = new Regex("53757");
+        this.RegExZIP = new RegEx("53757");
+        this.counter  = 0L;
     }
 
 
     @AfterEach
     void tearDown(){
         this.RegExZIP = null;
+        this.counter  = null;
     }
 
 
     @Test
     @DisplayName("test if regular expression for zip's work like intended")
-    void testRegExZIP(){
+    void testValidateRegExZIP(){
+        assertTrue(this.RegExZIP.validateRegExZIP(), "Damn, thats not working like intended! no" + ++counter);
     }
 
 
     @Test
     @DisplayName("test if regular expression for phone numbers work like intended")
-    void testRegExPhoneNumber(){
+    void testValidateRegExPhoneNumber(){
+        assertTrue(this.RegExZIP.validateRegExPhoneNumber(), "Damn, thats not working like intended! no" + ++counter);
     }
 
 
     @Test
     @DisplayName("test if regular expression for license plates work like intended")
-    void testRegExLicensePlate(){
+    void testValidateRegExLicensePlate(){
+        assertTrue(this.RegExZIP.validateRegExLicensePlate(), "Damn, thats not working like intended! no" + ++counter);
     }
 
 
     @Test
     @DisplayName("test if regular expression for mail addresses work like intended")
-    void testRegExZipMailAddress(){
+    void testValidateRegExMailAddress(){
+        assertTrue(this.RegExZIP.validateRegExMailAddress(), "Damn, thats not working like intended! no" + ++counter);
     }
 
 
     @Test
     @DisplayName("test if regular expression for URLs work like intended")
-    void testRegExURL(){
+    void testValidateRegExURL(){
+        assertTrue(this.RegExZIP.validateRegExURL(), "Damn, thats not working like intended! no" + ++counter);
     }
 
 
     @Test
     @DisplayName("test if regular expression for java dev comments work like intended")
-    void testRegExZipJavaDevComment(){
+    void testValidateRegExZipJavaDevComment(){
+        assertTrue(this.RegExZIP.validateRegExJavaDevComment(), "Damn, thats not working like intended! no" + ++counter);
     }
 
 
     @Test
     @DisplayName("test if regular expression for java class names work like intended")
-    void testRegExZipJavaClassName(){
+    void testValidateRegExZipJavaClassName(){
+        assertTrue(this.RegExZIP.validateRegExJavaClassName(), "Damn, thats not working like intended! no" + ++counter);
     }
 
 }

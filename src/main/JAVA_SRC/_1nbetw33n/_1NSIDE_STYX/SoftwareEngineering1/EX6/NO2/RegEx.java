@@ -5,6 +5,7 @@ public class RegEx implements RegExable {
     private StringBuilder regEx;
 
     protected RegEx(final String REGEX){
+        this.regEx = new StringBuilder();
         this.regEx.append(REGEX);
     }
 

@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 final class RegExTest {
 
-    private RegEx RegExZIP;
+    private RegExable RegExZIP;
     private Long  counter;
 
     @BeforeEach

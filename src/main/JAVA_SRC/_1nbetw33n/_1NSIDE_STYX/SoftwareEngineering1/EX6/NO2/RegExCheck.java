@@ -18,7 +18,7 @@ final public class RegExCheck {
 
 
     final public static boolean validateRegExZIP(final String EXPRESSION) {
-        return EXPRESSION.equals("^[0-9]{1}[1-9]");
+        return EXPRESSION.equals("^[0-9]{1}[1-9]{4}$");
     }
 
 

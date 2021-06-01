@@ -18,7 +18,7 @@ final public class RegExCheck {
 
 
     final public static boolean validateRegExZIP(final String EXPRESSION) {
-        return EXPRESSION.equals("^[0-9]{1}[1-9]{4}$");
+        return EXPRESSION.matches("^[0-9]{1}[1-9]{4}$");
     }
 
 
@@ -28,12 +28,12 @@ final public class RegExCheck {
 
 
     final public static boolean validateRegExLicensePlate(final String EXPRESSION) {
-        return false;
+        return EXPRESSION.matches("^[A-Z]{1,3}\\s[A-Z]{1,2}\\s[1-9]{1}[0-9]{1,3}\\s[H]*");
     }
 
 
     final public static boolean validateRegExMailAddress(final String EXPRESSION) {
-        return false;
+        return EXPRESSION.matches("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,}$");
     }
 
 
@@ -43,7 +43,7 @@ final public class RegExCheck {
 
 
     final public static boolean validateRegExJavaDevComment(final String EXPRESSION) {
-        return false;
+        return EXPRESSION.matches("^/\\*(.|[\\r\\n])*?\\*/$");
     }
 
 

@@ -30,7 +30,6 @@ CreditCard : exit / authorization request to card network
 
 Authorization : entry / card network submits request to issuer
 Authorization : do / issuer approves/disapproves transaction
-Authorization : exit / display result of request
 
 Accept : entry / card network forwards authorization request to institute
 Accept : do / institute forwards positive response to PaymentInterface

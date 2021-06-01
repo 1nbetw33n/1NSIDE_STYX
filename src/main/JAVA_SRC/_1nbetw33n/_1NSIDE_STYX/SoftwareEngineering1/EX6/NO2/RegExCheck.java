@@ -38,7 +38,7 @@ final public class RegExCheck {
 
 
     final public static boolean validateRegExURL(final String EXPRESSION) {
-        return false;
+        return EXPRESSION.matches("^(http|https):[/]{2}[w]{3}\\.[a-z0-9-]{2,63}\\.[a-z]{2,}$");
     }
 
 

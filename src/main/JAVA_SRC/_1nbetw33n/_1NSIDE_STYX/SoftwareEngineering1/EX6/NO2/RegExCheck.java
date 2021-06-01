@@ -23,7 +23,7 @@ final public class RegExCheck {
 
 
     final public static boolean validateRegExPhoneNumber(final String EXPRESSION) {
-        return false;
+        return EXPRESSION.matches("^\\+[4]{1}[9]{1}[0-9]{7,15}$");
     }
 
 
@@ -48,6 +48,6 @@ final public class RegExCheck {
 
 
     final public static boolean validateRegExJavaClassName(final String EXPRESSION) {
-        return false;
+        return EXPRESSION.matches("^[A-Za-z_$]{1,}[A-Za-z0-9_$]*$");
     }
 }

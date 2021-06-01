@@ -10,6 +10,7 @@ final class RegExCheckTest {
     private String zipExpression2;
     private String phoneNumberExpression1;
     private String phoneNumberExpression2;
+    private String phoneNumberExpression3;
     private String licensePlateExpression1;
     private String licensePlateExpression2;
     private String mailAddressExpression1;
@@ -23,6 +24,8 @@ final class RegExCheckTest {
     private String javaDevCommentExpression3;
     private String javaClassNameExpression1;
     private String javaClassNameExpression2;
+    private String javaClassNameExpression3;
+    private String javaClassNameExpression4;
 
     @BeforeEach
     void setUp(){
@@ -31,6 +34,7 @@ final class RegExCheckTest {
         this.zipExpression2            = "WC2N 5DU";
         this.phoneNumberExpression1    = "+493305624926";
         this.phoneNumberExpression2    = "+35123456789";
+        this.phoneNumberExpression3    = "+493012345678998765432";
         this.licensePlateExpression1   = "B AB 123 H";
         this.licensePlateExpression2   = "B ÄÖ 34";
         this.mailAddressExpression1    = "bella@transhilfe.de";
@@ -42,8 +46,10 @@ final class RegExCheckTest {
         this.javaDevCommentExpression1 = "/* this is a dev comment */";
         this.javaDevCommentExpression2 = "/* and this \n * is also \n * a dev comment */";
         this.javaDevCommentExpression3 = "this is not a dev comment";
-        this.javaClassNameExpression1  = "";
-        this.javaClassNameExpression2  = "";
+        this.javaClassNameExpression1  = "HelloWorld";
+        this.javaClassNameExpression2  = "_hello-WORLD";
+        this.javaClassNameExpression3  = "1HELLO_WORLD";
+        this.javaClassNameExpression4  = "_helloWorld_";
     }
 
 
@@ -67,11 +73,13 @@ final class RegExCheckTest {
        this.javaDevCommentExpression3 = null;
        this.javaClassNameExpression1  = null;
        this.javaClassNameExpression2  = null;
+       this.javaClassNameExpression3  = null;
+       this.javaClassNameExpression4  = null;
     }
 
 
     @Test
-    @DisplayName("test if regular expression for zip's work like intended")
+    @DisplayName("test if regular expression for zip's works like intended")
     void testValidateRegExZIP(){
         assertTrue(RegExCheck.validateRegExZIP(this.zipExpression1), "Damn, thats not working like intended! no" + ++counter);
         assertFalse(RegExCheck.validateRegExZIP(this.zipExpression2), "Damn, thats not working like intended! no" + ++counter);
@@ -79,15 +87,16 @@ final class RegExCheckTest {
 
 
     @Test
-    @DisplayName("test if regular expression for phone numbers work like intended")
+    @DisplayName("test if regular expression for phone numbers works like intended")
     void testValidateRegExPhoneNumber(){
         assertTrue(RegExCheck.validateRegExPhoneNumber(this.phoneNumberExpression1), "Damn, thats not working like intended! no" + ++counter);
         assertFalse(RegExCheck.validateRegExPhoneNumber(this.phoneNumberExpression2), "Damn, thats not working like intended! no" + ++counter);
+        assertFalse(RegExCheck.validateRegExPhoneNumber(this.phoneNumberExpression3), "Damn, thats not working like intended! no" + ++counter);
     }
 
 
     @Test
-    @DisplayName("test if regular expression for license plates work like intended")
+    @DisplayName("test if regular expression for license plates works like intended")
     void testValidateRegExLicensePlate(){
         assertTrue(RegExCheck.validateRegExLicensePlate(this.licensePlateExpression1), "Damn, thats not working like intended! no" + ++counter);
         assertFalse(RegExCheck.validateRegExLicensePlate(this.licensePlateExpression2), "Damn, thats not working like intended! no" + ++counter);
@@ -95,7 +104,7 @@ final class RegExCheckTest {
 
 
     @Test
-    @DisplayName("test if regular expression for mail addresses work like intended")
+    @DisplayName("test if regular expression for mail addresses works like intended")
     void testValidateRegExMailAddress(){
         assertTrue(RegExCheck.validateRegExMailAddress(this.mailAddressExpression1), "Damn, thats not working like intended! no" + ++counter);
         assertFalse(RegExCheck.validateRegExMailAddress(this.mailAddressExpression2), "Damn, thats not working like intended! no" + ++counter);
@@ -103,7 +112,7 @@ final class RegExCheckTest {
 
 
     @Test
-    @DisplayName("test if regular expression for URLs work like intended")
+    @DisplayName("test if regular expression for URLs works like intended")
     void testValidateRegExURL(){
         assertTrue(RegExCheck.validateRegExURL(this.urlExpression1), "Damn, thats not working like intended! no" + ++counter);
         assertTrue(RegExCheck.validateRegExURL(this.urlExpression2), "Damn, thats not working like intended! no" + ++counter);
@@ -114,7 +123,7 @@ final class RegExCheckTest {
 
 
     @Test
-    @DisplayName("test if regular expression for java dev comments work like intended")
+    @DisplayName("test if regular expression for java dev comments works like intended")
     void testValidateRegExJavaDevComment(){
         assertTrue(RegExCheck.validateRegExJavaDevComment(this.javaDevCommentExpression1), "Damn, thats not working like intended! no" + ++counter);
         assertTrue(RegExCheck.validateRegExJavaDevComment(this.javaDevCommentExpression2), "Damn, thats not working like intended! no" + ++counter);
@@ -123,10 +132,12 @@ final class RegExCheckTest {
 
 
     @Test
-    @DisplayName("test if regular expression for java class names work like intended")
+    @DisplayName("test if regular expression for java class names works like intended")
     void testValidateRegExJavaClassName(){
         assertTrue(RegExCheck.validateRegExJavaClassName(this.javaClassNameExpression1), "Damn, thats not working like intended! no" + ++counter);
         assertFalse(RegExCheck.validateRegExJavaClassName(this.javaClassNameExpression2), "Damn, thats not working like intended! no" + ++counter);
+        assertFalse(RegExCheck.validateRegExJavaClassName(this.javaClassNameExpression3), "Damn, thats not working like intended! no" + ++counter);
+        assertTrue(RegExCheck.validateRegExJavaClassName(this.javaClassNameExpression4), "Damn, thats not working like intended! no" + ++counter);
     }
 
 }

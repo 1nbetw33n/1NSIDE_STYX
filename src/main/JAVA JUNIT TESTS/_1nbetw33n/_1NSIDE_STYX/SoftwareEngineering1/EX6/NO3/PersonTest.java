@@ -72,7 +72,7 @@ class PersonTest {
 
     @Test
     void getStreet() {
-        assertEquals("Grantham-Allee", this.unix.getOrganisation(), "that's not working like intended. try smarter! - " + ++this.counter);
+        assertEquals("Grantham-Allee", this.unix.getStreet(), "that's not working like intended. try smarter! - " + ++this.counter);
     }
 
     @Test

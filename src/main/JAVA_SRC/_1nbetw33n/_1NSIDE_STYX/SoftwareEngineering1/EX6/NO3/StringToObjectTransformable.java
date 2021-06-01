@@ -15,4 +15,15 @@ package _1nbetw33n._1NSIDE_STYX.SoftwareEngineering1.EX6.NO3;
 
 public interface StringToObjectTransformable {
 
+    String getSalutation();
+    String getTitle();
+    String getFirstName();
+    String getLastName();
+    String getOrganisation();
+    String getDepartment();
+    String getStreet();
+    String getHouseNumber();
+    String getZIPCode();
+    String getTown();
+
 }

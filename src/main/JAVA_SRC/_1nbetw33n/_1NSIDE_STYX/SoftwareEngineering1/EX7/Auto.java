@@ -30,4 +30,5 @@ public class Auto implements  Autoable{
     public int parkdauer() {
         return 0;
     }
+
 }

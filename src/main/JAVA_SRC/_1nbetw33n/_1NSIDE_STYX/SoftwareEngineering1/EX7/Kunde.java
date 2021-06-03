@@ -14,4 +14,13 @@
 package _1nbetw33n._1NSIDE_STYX.SoftwareEngineering1.EX7;
 
 public class Kunde implements Kundeable{
+
+    public Kunde(){
+
+    }
+
+    public boolean istFirma() {
+        return false;
+    }
+
 }

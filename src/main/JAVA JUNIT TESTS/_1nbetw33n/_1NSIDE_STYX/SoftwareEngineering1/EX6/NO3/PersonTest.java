@@ -29,15 +29,15 @@ class PersonTest {
     @BeforeEach
     void setUp() {
         this.counter = 0L;
-        this.input  = "Frau Dr. Eva Müller, Hochschule Bonn-Rhein-Sieg, Fachbereich Informatik, Grantham-Allee 20, 53757 Sankt Augustin";
-        this.unix   = new Person(input);
+        this.input = "Frau Dr. Eva Müller, Hochschule Bonn-Rhein-Sieg, Fachbereich Informatik, Grantham-Allee 20, 53757 Sankt Augustin";
+        this.unix = new Person(input);
     }
 
     @AfterEach
     void tearDown() {
         this.counter = null;
         this.input = null;
-        this.unix  = null;
+        this.unix= null;
     }
 
     @Test

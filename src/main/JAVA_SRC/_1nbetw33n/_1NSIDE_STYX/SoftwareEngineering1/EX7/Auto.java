@@ -14,4 +14,20 @@
 package _1nbetw33n._1NSIDE_STYX.SoftwareEngineering1.EX7;
 
 public class Auto implements  Autoable{
+
+    public Auto(){
+
+    }
+
+    public boolean hatTurbo() {
+        return false;
+    }
+
+    public Kunde kunde() {
+        return null;
+    }
+
+    public int parkdauer() {
+        return 0;
+    }
 }

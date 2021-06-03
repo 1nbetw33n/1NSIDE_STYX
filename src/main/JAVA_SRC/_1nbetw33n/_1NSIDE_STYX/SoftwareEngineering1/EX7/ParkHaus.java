@@ -14,4 +14,14 @@
 package _1nbetw33n._1NSIDE_STYX.SoftwareEngineering1.EX7;
 
 public class ParkHaus implements ParkHausable{
+
+    public ParkHaus(){
+
+    }
+
+    @SuppressWarnings("NonAsciiCharacters")
+    public int gebühr() {
+        return 0;
+    }
+
 }

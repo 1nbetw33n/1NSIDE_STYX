@@ -15,16 +15,29 @@ package _1nbetw33n._1NSIDE_STYX.SoftwareEngineering1.EX7;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class ParkHausTest {
 
+    private Long counter;
+
     @BeforeEach
     void setUp() {
+        this.counter = 0L;
     }
 
     @AfterEach
     void tearDown() {
+        this.counter = null;
+    }
+
+    @SuppressWarnings("NonAsciiCharacters")
+    @Test
+    @DisplayName("...")
+    void gebühr() {
+        assertEquals("","", "That's not working like it should. Try smarter!:) - " + ++this.counter);
     }
 }

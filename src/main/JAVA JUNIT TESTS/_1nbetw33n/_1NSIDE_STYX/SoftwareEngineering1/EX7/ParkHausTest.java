@@ -115,7 +115,7 @@ final class ParkHausTest {
             then do for every car (parking time * parking garage fee) and sum it up
      */
     void sumGebühr() {
-        assertEquals("","", "That's not working like it should. Try smarter!:) - " + ++this.counter);
+        assertEquals(14435, this.autoListSum, "That's not working like it should! Try Again:) - " + ++this.counter);
     }
 
     @Test
@@ -125,7 +125,7 @@ final class ParkHausTest {
             and with parking time <= 1day
      */
     void listCompanies(){
-        assertEquals("","", "That's not working like it should. Try smarter!:) - " + ++this.counter);
+        assertSame(Arrays.asList(this.auto4, this.auto5, this.auto1),this.ListOfCarsParkingLongerThanOneDay, "That's not working like it should! Try Again:) - " + ++this.counter);
     }
 
 

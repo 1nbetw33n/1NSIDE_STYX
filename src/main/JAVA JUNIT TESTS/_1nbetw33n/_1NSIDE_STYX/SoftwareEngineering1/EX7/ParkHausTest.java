@@ -39,7 +39,7 @@ final class ParkHausTest {
     private Kunde kunde4;
     private Kunde kunde5;
     private ParkHaus parkhaus;
-    private Integer autoListSum;
+    private Integer    autoListSum;
     private List<Auto> ListOfCarsParkingLongerThanOneDay;
 
     @BeforeEach
@@ -57,7 +57,7 @@ final class ParkHausTest {
         this.kunde4  = new Kunde();
         this.kunde5  = new Kunde();
         this.parkhaus = new ParkHaus();
-        this.auto1.turbo = true;
+        this.auto1.turbo = false;
         this.auto2.turbo = true;
         this.auto3.turbo = true;
         this.auto4.turbo = true;
@@ -72,18 +72,18 @@ final class ParkHausTest {
         this.auto3.kunde = this.kunde3;
         this.auto4.kunde = this.kunde4;
         this.auto5.kunde = this.kunde5;
-        this.kunde1.firma = true;
-        this.kunde2.firma = true;
+        this.kunde1.firma = false;
+        this.kunde2.firma = false;
         this.kunde3.firma = true;
-        this.kunde4.firma = false;
-        this.kunde5.firma = false;
+        this.kunde4.firma = true;
+        this.kunde5.firma = true;
         this.parkhaus.gebühr = 13;
         this.autoListSum = Arrays.stream(this.autos)
                                  .filter(x -> (x.hatTurbo() && x.kunde.istFirma()))
-                                 .map(x -> x.parkdauer * parkhaus.gebühr())
+                                 .map(x -> (x.parkdauer * parkhaus.gebühr()))
                                  .reduce(0, Integer::sum);
         this.ListOfCarsParkingLongerThanOneDay = Arrays.stream(this.autos)
-                                                                                    .filter(x -> x.kunde.istFirma() && x.parkdauer > 1440)
+                                                                                    .filter(x -> (x.kunde.istFirma() && x.parkdauer() > 1440))
                                                                                     .collect(Collectors.toList());
     }
 
@@ -115,7 +115,7 @@ final class ParkHausTest {
             then do for every car (parking time * parking garage fee) and sum it up
      */
     void sumGebühr() {
-        assertEquals(14435, this.autoListSum, "That's not working like it should! Try Again:) - " + ++this.counter);
+        assertEquals(143000, this.autoListSum, "That's not working like it should! Try Again:) - " + ++this.counter);
     }
 
     @Test
@@ -125,7 +125,7 @@ final class ParkHausTest {
             and with parking time <= 1day
      */
     void listCompanies(){
-        assertSame(Arrays.asList(this.auto4, this.auto5, this.auto1),this.ListOfCarsParkingLongerThanOneDay, "That's not working like it should! Try Again:) - " + ++this.counter);
+        assertEquals(Arrays.asList(this.auto4, this.auto5),this.ListOfCarsParkingLongerThanOneDay, "That's not working like it should! Try Again:) - " + ++this.counter);
     }
 
 

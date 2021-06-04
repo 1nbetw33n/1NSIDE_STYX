@@ -15,7 +15,7 @@ package _1nbetw33n._1NSIDE_STYX.SoftwareEngineering1.EX7;
 
 final public class Kunde implements Kundeable{
 
-    private boolean firma;
+    protected boolean firma;
 
     public Kunde(){}
 

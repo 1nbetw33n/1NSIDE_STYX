@@ -45,19 +45,21 @@ final class AutoTest {
 
     @Test
     @DisplayName("tests Auto.hatTurbo()")
-    /* tests if the boolean */
+    /* tests, if this methods returns correctly if the specified car has a build in turbo*/
     void hatTurbo() {
-        assertEquals("","", "That's not working like it should. Try smarter!:) - " + ++this.counter);
+        assertTrue( ,, "That's not working like it should. Try smarter!:) - " + ++this.counter);
     }
 
     @Test
-    @DisplayName("...")
+    @DisplayName("tests Auto.kunde()")
+    /* tests, if this methods returns correctly the associated customer (kunde) object. */
     void kunde() {
         assertEquals("","", "That's not working like it should. Try smarter!:) - " + ++this.counter);
     }
 
     @Test
-    @DisplayName("...")
+    @DisplayName("tests Auto.parkdauer()")
+    /* tests, if this method returns the correct parking time (parkdauer) field of the associated car (auto) */
     void parkdauer() {
         assertEquals("","", "That's not working like it should. Try smarter!:) - " + ++this.counter);
     }

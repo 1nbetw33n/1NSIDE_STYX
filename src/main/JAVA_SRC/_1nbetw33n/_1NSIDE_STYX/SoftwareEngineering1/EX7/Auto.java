@@ -17,9 +17,9 @@ import java.util.List;
 
 final public class Auto implements Autoable {
 
-    private boolean turbo;
-    private Kunde   kunde;
-    private int         parkdauer;
+    protected boolean turbo;
+    protected Kunde   kunde;
+    protected int         parkdauer;
 
     public Auto() {}
 

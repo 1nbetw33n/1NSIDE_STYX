@@ -13,15 +13,13 @@
 
 package _1nbetw33n._1NSIDE_STYX.SoftwareEngineering1.EX7;
 
-public class ParkHaus implements ParkHausable{
+final public class ParkHaus implements ParkHausable{
 
-    public ParkHaus(){
+    private int gebühr;
 
-    }
+    public ParkHaus(){}
 
     @SuppressWarnings("NonAsciiCharacters")
-    public int gebühr() {
-        return 0;
-    }
+    final public int gebühr() {return this.gebühr;}
 
 }

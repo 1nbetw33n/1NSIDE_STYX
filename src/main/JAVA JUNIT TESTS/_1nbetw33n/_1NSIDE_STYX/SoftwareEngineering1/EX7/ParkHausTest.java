@@ -20,7 +20,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ParkHausTest {
+final class ParkHausTest {
 
     private Long counter;
 

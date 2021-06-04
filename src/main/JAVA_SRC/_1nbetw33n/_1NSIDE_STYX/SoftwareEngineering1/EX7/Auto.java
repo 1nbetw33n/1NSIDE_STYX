@@ -13,22 +13,24 @@
 
 package _1nbetw33n._1NSIDE_STYX.SoftwareEngineering1.EX7;
 
-public class Auto implements  Autoable{
+import java.util.List;
 
-    public Auto(){
+final public class Auto implements Autoable {
 
+    private boolean turbo;
+    private Kunde   kunde;
+    private int         parkdauer;
+
+    public Auto() {}
+
+    final public boolean hatTurbo() { return this.turbo;}
+
+    final public Kunde kunde() {
+        return this.kunde;
     }
 
-    public boolean hatTurbo() {
-        return false;
-    }
-
-    public Kunde kunde() {
-        return null;
-    }
-
-    public int parkdauer() {
-        return 0;
+    final public int parkdauer() {
+        return this.parkdauer;
     }
 
 }

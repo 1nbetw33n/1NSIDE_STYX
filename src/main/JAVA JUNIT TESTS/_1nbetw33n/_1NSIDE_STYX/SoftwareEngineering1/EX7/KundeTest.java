@@ -20,7 +20,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class KundeTest {
+final class KundeTest {
 
     private Long counter;
 

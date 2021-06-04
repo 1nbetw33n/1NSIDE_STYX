@@ -20,22 +20,32 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class AutoTest {
+final class AutoTest {
 
     private Long counter;
+    private Auto auto1;
+    private Auto auto2;
+    private Auto auto3;
 
     @BeforeEach
     void setUp() {
         this.counter = 0L;
+        this.auto1    = new Auto();
+        this.auto2    = new Auto();
+        this.auto3    = new Auto();
     }
 
     @AfterEach
     void tearDown() {
         this.counter = null;
+        this.auto1    = null;
+        this.auto2    = null;
+        this.auto3    = null;
     }
 
     @Test
-    @DisplayName("...")
+    @DisplayName("tests Auto.hatTurbo()")
+    /* tests if the boolean */
     void hatTurbo() {
         assertEquals("","", "That's not working like it should. Try smarter!:) - " + ++this.counter);
     }

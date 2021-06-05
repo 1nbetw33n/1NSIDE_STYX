@@ -79,11 +79,11 @@ final class ParkHausTest {
         this.kunde5.firma = true;
         this.parkhaus.gebühr = 13;
         this.autoListSum = Arrays.stream(this.autos)
-                                            .filter(x -> (x.hatTurbo() && x.kunde.istFirma()))
+                                            .filter(x -> ((x.hatTurbo()) && (x.kunde.istFirma())))
                                             .map(x -> (x.parkdauer * parkhaus.gebühr()))
                                             .reduce(0, Integer::sum);
         this.ListOfCarsParkingLongerThanOneDay = Arrays.stream(this.autos)
-                                                                                    .filter(x -> (x.kunde.istFirma() && x.parkdauer() > 1440))
+                                                                                    .filter(x -> ((x.kunde.istFirma()) && (x.parkdauer() > 1440)))
                                                                                     .collect(Collectors.toList());
     }
 

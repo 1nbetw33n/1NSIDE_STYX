@@ -1,0 +1,38 @@
+@startuml
+skinparam classAttributeIconSIze 0
+rectangle EvenUnevenIterator {
+    entity client
+
+    interface Iterator {
+        +next(): T
+        +hasNext(): boolean
+    }
+
+    class EvenUnevenIterator {
+        -cursor: Integer
+        -switch: Boolean
+        +next(): T
+        +hasNext(): boolean
+    }
+
+    interface EvenUnevenDataStructureAble {
+        +createIterator(): Iterator
+    }
+
+    class EvenUnevenDataStructure {
+        +createIterator(): Iterator
+    }
+
+    Iterator <<interface>>
+    EvenUnevenIterator <<class>>
+    EvenUnevenDataStructureAble <<interface>>
+    EvenUnevenDataStructure <<class>>
+
+    client -left-|> EvenUnevenDataStructureAble
+    client -right-|> Iterator
+    EvenUnevenDataStructure .up.|> EvenUnevenDataStructureAble
+    EvenUnevenIterator .up.|> Iterator
+    EvenUnevenDataStructure .right.|> EvenUnevenIterator : <<create>>
+    EvenUnevenDataStructure <|-- EvenUnevenIterator
+}
+@enduml

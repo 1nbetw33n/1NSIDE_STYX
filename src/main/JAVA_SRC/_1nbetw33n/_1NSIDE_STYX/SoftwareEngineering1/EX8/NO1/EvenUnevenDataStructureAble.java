@@ -13,22 +13,9 @@
 
 package _1nbetw33n._1NSIDE_STYX.SoftwareEngineering1.EX8.NO1;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
+import java.util.Iterator;
 
-import static org.junit.jupiter.api.Assertions.*;
+public interface EvenUnevenDataStructureAble{
 
-class EvenUnevenIteratorTest {
-
-    private EvenUnevenIterator evenIterator;
-    private EvenUnevenIterator unevenIterator;
-    private
-
-    @BeforeEach
-    void setUp() {
-    }
-
-    @AfterEach
-    void tearDown() {
-    }
+    Iterator<EvenUnevenDataStructureAble> createIterator();
 }

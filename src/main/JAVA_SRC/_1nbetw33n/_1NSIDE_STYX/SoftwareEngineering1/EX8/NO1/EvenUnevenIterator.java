@@ -14,9 +14,8 @@
 package _1nbetw33n._1NSIDE_STYX.SoftwareEngineering1.EX8.NO1;
 
 import java.util.Iterator;
-import java.util.List;
 
-public class EvenUnevenIterator implements Iterator<List> {
+public class EvenUnevenIterator implements Iterator<EvenUnevenDataStructureAble> {
     /**
      * Returns {@code true} if the iteration has more elements.
      * (In other words, returns {@code true} if {@link #next} would
@@ -34,7 +33,7 @@ public class EvenUnevenIterator implements Iterator<List> {
      * @return the next element in the iteration
      * @throws NoSuchElementException if the iteration has no more elements
      */
-    public List next() {
+    public EvenUnevenDataStructureAble next() {
         return null;
     }
 }

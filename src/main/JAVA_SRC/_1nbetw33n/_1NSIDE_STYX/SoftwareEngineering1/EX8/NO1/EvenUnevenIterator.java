@@ -42,7 +42,6 @@ public class EvenUnevenIterator<E> implements Iterator<E> {
     public boolean hasNext() {return this.cursor < this.elements.length;}
 
     public E next()
-
     {
         if (!hasNext())
         {
@@ -51,9 +50,9 @@ public class EvenUnevenIterator<E> implements Iterator<E> {
         else
         {
             /*
-            Explanation: Switch = true: even
-                                 Switch = false: uneven
-                                 Switch = null: default foreach
+            Explanation: Switch = true: only even indices
+                                 Switch = false: only uneven indices
+                                 Switch = null: iterate over all indices
              */
             if (this.Switch == null)
             {

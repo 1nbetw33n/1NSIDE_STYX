@@ -1,0 +1,9 @@
+@startuml
+@startuml
+skinparam classAttributeIconSize 0
+class TopSortIterator {
+  -cursor: Integer
+}
+@enduml
+
+@enduml

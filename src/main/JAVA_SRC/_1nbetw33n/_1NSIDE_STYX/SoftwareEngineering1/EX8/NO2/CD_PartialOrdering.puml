@@ -36,7 +36,5 @@ rectangle PartialOrdering {
     PartialOrdering .up.|> Iterable:<<implements>>
     PartialOrdering .left.|> TopSortIterator:<<creates>>
     PartialOrdering <|-right- TopSortIterator
-
-
 }
 @enduml

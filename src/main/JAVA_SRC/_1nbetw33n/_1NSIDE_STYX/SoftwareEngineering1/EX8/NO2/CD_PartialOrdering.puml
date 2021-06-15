@@ -1,9 +1,42 @@
 @startuml
-@startuml
 skinparam classAttributeIconSize 0
-class TopSortIterator {
-  -cursor: Integer
-}
-@enduml
+rectangle PartialOrdering {
 
+    interface Iterable<T>
+    {
+        +iterator(): Iterator<T>
+    }
+
+    interface Iterator<T>
+    {
+        +next():T
+        +hasNext():Boolean
+    }
+
+    class TopSortIterator<E>
+    {
+        -cursor: Integer
+        +next(): E
+        +hasNext():Boolean
+    }
+
+    class PartialOrdering
+    {
+        -order:String[]
+        +PartialOrdering(order:String[])
+        +iterator():Iterator<String>
+        +{static} studentLife():PartialOrdering
+        +{static}main(args:String[])
+    }
+
+    Iterable <<interface>>
+    Iterator <<interface>>
+
+    TopSortIterator .up.|> Iterator:<<implements>>
+    PartialOrdering .up.|> Iterable:<<implements>>
+    PartialOrdering .left.|> TopSortIterator:<<creates>>
+    PartialOrdering <|-right- TopSortIterator
+
+
+}
 @enduml

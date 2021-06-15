@@ -13,27 +13,59 @@
 
 package _1nbetw33n._1NSIDE_STYX.SoftwareEngineering1.EX8.NO1;
 
+import com.sun.org.apache.bcel.internal.generic.SWITCH;
+
 import java.util.Iterator;
+import java.util.List;
+import java.util.NoSuchElementException;
 
-public class EvenUnevenIterator implements Iterator<EvenUnevenDataStructureAble> {
-    /**
-     * Returns {@code true} if the iteration has more elements.
-     * (In other words, returns {@code true} if {@link #next} would
-     * return an element rather than throwing an exception.)
-     *
-     * @return {@code true} if the iteration has more elements
-     */
-    public boolean hasNext() {
-        return false;
+public class EvenUnevenIterator<E> implements Iterator<E> {
+
+    private  Integer cursor;
+    private Boolean Switch;
+    private E[] elements;
+
+
+    public EvenUnevenIterator(final List<E> LIST)
+    {
+        this.elements = (E[]) LIST.toArray();
+        this.cursor = 0;
+    };
+
+    public EvenUnevenIterator(final List<E> LIST, final Boolean SWITCH)
+    {
+        this.elements = (E[]) LIST.toArray();
+        this.Switch = SWITCH;
+        this.cursor = this.Switch ? 0 : 1;
     }
 
-    /**
-     * Returns the next element in the iteration.
-     *
-     * @return the next element in the iteration
-     * @throws NoSuchElementException if the iteration has no more elements
-     */
-    public EvenUnevenDataStructureAble next() {
-        return null;
+    public boolean hasNext() {return this.cursor < this.elements.length;}
+
+    public E next()
+
+    {
+        if (!hasNext())
+        {
+            throw new NoSuchElementException();
+        }
+        else
+        {
+            /*
+            Explanation: Switch = true: even
+                                 Switch = false: uneven
+                                 Switch = null: default foreach
+             */
+            if (this.Switch == null)
+            {
+                return this.elements[this.cursor++];
+            }
+            else
+            {
+                Integer tmp = this.cursor;
+                this.cursor +=2;
+                return this.elements[tmp];
+            }
+        }
     }
+
 }

@@ -13,8 +13,6 @@
 
 package _1nbetw33n._1NSIDE_STYX.SoftwareEngineering1.EX8.NO1;
 
-import com.sun.org.apache.bcel.internal.generic.SWITCH;
-
 import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;

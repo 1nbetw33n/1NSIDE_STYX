@@ -22,8 +22,8 @@ import java.util.NoSuchElementException;
 public class EvenUnevenIterator<E> implements Iterator<E> {
 
     private  Integer cursor;
-    private Boolean Switch;
-    private E[] elements;
+    private       Boolean Switch;
+    private final E[]     elements;
 
 
     public EvenUnevenIterator(final List<E> LIST)

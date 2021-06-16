@@ -13,5 +13,38 @@
 
 package _1nbetw33n._1NSIDE_STYX.SoftwareEngineering1.EX8.NO2;
 
-public class TopSortIterator {
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+import java.util.stream.Stream;
+
+public class TopSortIterator<E> implements Iterator<E> {
+
+    private E[] elements;
+    private Integer cursor;
+
+    public TopSortIterator(final E[][] ELEMENTS)
+    {
+        this.elements = (E[]) Stream.of(ELEMENTS)
+                                    .flatMap(Stream::of)
+                                    .toArray(Object[]::new);
+    }
+
+    public boolean hasNext()
+    {
+        return this.elements.length < this.cursor;
+    }
+
+
+    public E next() {
+        if (!hasNext()) {
+            throw new NoSuchElementException();
+        } else {
+            return this.elements[this.cursor++];
+        }
+    }
+
+
+    public void remove() {
+        Iterator.super.remove();
+    }
 }

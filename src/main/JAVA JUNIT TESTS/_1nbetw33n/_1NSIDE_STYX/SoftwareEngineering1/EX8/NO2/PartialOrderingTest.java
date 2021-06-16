@@ -15,16 +15,32 @@ package _1nbetw33n._1NSIDE_STYX.SoftwareEngineering1.EX8.NO2;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class PartialOrderingTest {
 
+    private static final Long serialVersionUID = 1L;
+    private Long counter;
+
     @BeforeEach
-    void setUp() {
+    void setUp()
+    {
+        this.counter = 0L;
     }
 
     @AfterEach
-    void tearDown() {
+    void tearDown()
+    {
+        this.counter = null;
     }
+
+    @Test
+    @DisplayName("TopologicalSorting Test")
+    void testTopologicalSorting(){
+        assertEquals(true, false);
+    }
+
 }

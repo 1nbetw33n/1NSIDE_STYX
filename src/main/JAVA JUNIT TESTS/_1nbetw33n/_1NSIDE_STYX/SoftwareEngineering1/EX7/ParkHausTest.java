@@ -26,36 +26,36 @@ import static org.junit.jupiter.api.Assertions.*;
 
 final class ParkHausTest {
 
-    private Long counter;
-    private Auto auto1;
-    private Auto auto2;
-    private Auto auto3;
-    private Auto auto4;
-    private Auto auto5;
-    private Auto[] autos;
-    private Kunde kunde1;
-    private Kunde kunde2;
-    private Kunde kunde3;
-    private Kunde kunde4;
-    private Kunde kunde5;
-    private ParkHaus parkhaus;
+    private Long       counter;
+    private Auto       auto1;
+    private Auto       auto2;
+    private Auto       auto3;
+    private Auto       auto4;
+    private Auto       auto5;
+    private Auto[]     autos;
+    private Kunde      kunde1;
+    private Kunde      kunde2;
+    private Kunde      kunde3;
+    private Kunde      kunde4;
+    private Kunde      kunde5;
+    private ParkHaus   parkhaus;
     private Integer    autoListSum;
     private List<Auto> ListOfCarsParkingLongerThanOneDay;
 
     @BeforeEach
     void setUp() {
         this.counter = 0L;
-        this.auto1    = new Auto();
-        this.auto2    = new Auto();
-        this.auto3    = new Auto();
-        this.auto4    = new Auto();
-        this.auto5    = new Auto();
-        this.autos    = new Auto[]{this.auto1, this.auto2, this.auto3, this.auto4, this.auto5};
-        this.kunde1  = new Kunde();
-        this.kunde2  = new Kunde();
-        this.kunde3  = new Kunde();
-        this.kunde4  = new Kunde();
-        this.kunde5  = new Kunde();
+        this.auto1 = new Auto();
+        this.auto2 = new Auto();
+        this.auto3 = new Auto();
+        this.auto4 = new Auto();
+        this.auto5 = new Auto();
+        this.autos = new Auto[]{this.auto1, this.auto2, this.auto3, this.auto4, this.auto5};
+        this.kunde1 = new Kunde();
+        this.kunde2 = new Kunde();
+        this.kunde3 = new Kunde();
+        this.kunde4 = new Kunde();
+        this.kunde5 = new Kunde();
         this.parkhaus = new ParkHaus();
         this.auto1.turbo = false;
         this.auto2.turbo = true;
@@ -79,23 +79,23 @@ final class ParkHausTest {
         this.kunde5.firma = true;
         this.parkhaus.gebühr = 13;
         this.autoListSum = Arrays.stream(this.autos)
-                                            .filter(x -> ((x.hatTurbo()) && (x.kunde.istFirma())))
-                                            .map(x -> (x.parkdauer * parkhaus.gebühr()))
-                                            .reduce(0, Integer::sum);
+                                 .filter(x -> ((x.hatTurbo()) && (x.kunde.istFirma())))
+                                 .map(x -> (x.parkdauer * parkhaus.gebühr()))
+                                 .reduce(0, Integer::sum);
         this.ListOfCarsParkingLongerThanOneDay = Arrays.stream(this.autos)
-                                                                                    .filter(x -> ((x.kunde.istFirma()) && (x.parkdauer() > 1440)))
-                                                                                    .collect(Collectors.toList());
+                                                       .filter(x -> ((x.kunde.istFirma()) && (x.parkdauer() > 1440)))
+                                                       .collect(Collectors.toList());
     }
 
     @AfterEach
     void tearDown() {
         this.counter = null;
-        this.auto1  = null;
-        this.auto2  = null;
-        this.auto3  = null;
-        this.auto4  = null;
-        this.auto5  = null;
-        this.autos  = null;
+        this.auto1 = null;
+        this.auto2 = null;
+        this.auto3 = null;
+        this.auto4 = null;
+        this.auto5 = null;
+        this.autos = null;
         this.kunde1 = null;
         this.kunde2 = null;
         this.kunde3 = null;
@@ -124,8 +124,8 @@ final class ParkHausTest {
             filter out all cars associated to a company
             and with parking time <= 1day
      */
-    void listCompanies(){
-        assertEquals(Arrays.asList(this.auto4, this.auto5),this.ListOfCarsParkingLongerThanOneDay, "That's not working like it should! Try Again:) - " + ++this.counter);
+    void listCompanies() {
+        assertEquals(Arrays.asList(this.auto4, this.auto5), this.ListOfCarsParkingLongerThanOneDay, "That's not working like it should! Try Again:) - " + ++this.counter);
     }
 
 

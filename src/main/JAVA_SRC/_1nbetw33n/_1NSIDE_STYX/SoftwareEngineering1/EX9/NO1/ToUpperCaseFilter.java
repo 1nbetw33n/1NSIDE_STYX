@@ -21,7 +21,8 @@ import java.util.stream.Collectors;
 
 public class ToUpperCaseFilter extends FilterInputStream {
 
-    private String name;
+    private final String name;
+
     protected ToUpperCaseFilter(InputStream in)
     {
         super(in);
@@ -32,9 +33,9 @@ public class ToUpperCaseFilter extends FilterInputStream {
                                 .toString();
     }
 
-        public void operation()
+        public String operation()
         {
-            this.name = this.name.toUpperCase();
+            return this.name.toUpperCase();
         }
 
 

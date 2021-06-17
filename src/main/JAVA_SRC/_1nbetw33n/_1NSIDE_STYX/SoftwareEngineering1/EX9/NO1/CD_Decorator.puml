@@ -3,19 +3,19 @@ rectangle Decorator {
     class Client <<class>>{}
 
     interface Component <<interface>>{
-        +operation()
+        +operation():String
     }
 
     abstract class  FilterInputStream <<abstract>> {
-        #next
+        #next:String
         +FilterInputStream(Component)
-        +operation()
+        +operation():String
     }
 
     class ToUpperCaseFilter <<class>>{
         -name: String
-        +ToUpperCaseFilter(String)
-        +operation()
+        +ToUpperCaseFilter(Component)
+        +operation():String
     }
 
     Client  .right.|> Component: <<uses>>

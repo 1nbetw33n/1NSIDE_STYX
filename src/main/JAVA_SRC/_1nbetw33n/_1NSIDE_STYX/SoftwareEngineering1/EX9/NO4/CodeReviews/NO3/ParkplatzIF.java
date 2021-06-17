@@ -8,7 +8,7 @@ public interface ParkplatzIF {
 
     Auto getAuto();
 
-    void einparken(Auto auto) throws ParkplatzBelegtException;;
+    void einparken(Auto auto) throws ParkplatzBelegtException;
 
     Auto ausparken() throws ParkplatzLeerException;
 

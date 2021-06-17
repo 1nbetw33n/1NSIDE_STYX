@@ -32,7 +32,7 @@ public class ToUpperCaseFilter extends FilterInputStream {
                                 .collect(Collectors.toList())
                                 .toString()
                                 .replaceAll("\\[", "")
-                                .replaceAll("]", "");
+                                .replaceAll("]", "").toUpperCase();
     }
 
     public String operation() { return this.name.toUpperCase(); }

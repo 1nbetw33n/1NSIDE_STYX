@@ -24,6 +24,7 @@ public class EvenUnevenIterator<E> implements Iterator<E> {
     private final E[]     elements;
 
 
+    @SuppressWarnings("unchecked")
     public EvenUnevenIterator(final List<E> LIST)
     {
         this.elements = (E[]) LIST.toArray();

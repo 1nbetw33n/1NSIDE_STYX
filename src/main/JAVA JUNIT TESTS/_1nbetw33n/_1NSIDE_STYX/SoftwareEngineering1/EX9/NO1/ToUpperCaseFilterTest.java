@@ -49,8 +49,8 @@ class ToUpperCaseFilterTest {
     @DisplayName("ToUppercase-Behaviour test")
     void operation()
     {
-        assertNotEquals("HELLOWORLD", this.mixedCases.toString(), "That's not working like it should. Try again!:) " + ++this.counter);
-        assertNotEquals("HELLOWORLD", this.mixedCases.operation(), "That's not working like it should. Try again!:) " + ++this.counter);
+        assertEquals("HelloWorld", this.mixedCases.name, "That's not working like it should. Try again!:) " + ++this.counter);
+        assertEquals("HELLOWORLD", this.mixedCases.operation(), "That's not working like it should. Try again!:) " + ++this.counter);
         assertNotEquals("helloworld", this.mixedCases.operation(), "That's not working like it should. Try again!:) " + ++this.counter);
     }
 

@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 
 public class ToUpperCaseFilter extends FilterInputStream {
 
-    private final String name;
+    protected final String name;
 
     protected ToUpperCaseFilter(InputStream in)
     {
@@ -30,7 +30,9 @@ public class ToUpperCaseFilter extends FilterInputStream {
                                 .lines()
                                 .parallel()
                                 .collect(Collectors.toList())
-                                .toString();
+                                .toString()
+                                .replaceAll("\\[", "")
+                                .replaceAll("]", "");
     }
 
         public String operation()

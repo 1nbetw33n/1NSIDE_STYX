@@ -35,10 +35,6 @@ public class ToUpperCaseFilter extends FilterInputStream {
                                 .replaceAll("]", "");
     }
 
-        public String operation()
-        {
-            return this.name.toUpperCase();
-        }
-
+    public String operation() { return this.name.toUpperCase(); }
 
 }

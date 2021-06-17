@@ -23,13 +23,14 @@ public class EvenUnevenIterator<E> implements Iterator<E> {
     private       Boolean Switch;
     private final E[]     elements;
 
-
+    @SuppressWarnings("unchecked")
     public EvenUnevenIterator(final List<E> LIST)
     {
         this.elements = (E[]) LIST.toArray();
         this.cursor = 0;
-    };
+    }
 
+    @SuppressWarnings("unchecked")
     public EvenUnevenIterator(final List<E> LIST, final Boolean SWITCH)
     {
         this.elements = (E[]) LIST.toArray();

@@ -1,0 +1,26 @@
+@startuml
+rectangle Decorator {
+    class Client <<class>>{}
+
+    interface Component <<interface>>{
+        +operation()
+    }
+
+    abstract class  FilterInputStream <<abstract>> {
+        #next
+        +FilterInputStream(Component)
+        +operation()
+    }
+
+    class ToUpperCaseFilter <<class>>{
+        -name: String
+        +ToUpperCaseFilter(String)
+        +operation()
+    }
+
+    Client  .right.|> Component: <<uses>>
+    FilterInputStream --o Component: <<aggregates>>
+    FilterInputStream .up.|> Component: <<implements>>
+    ToUpperCaseFilter -up-|> FilterInputStream: <<extends>>
+}
+@enduml

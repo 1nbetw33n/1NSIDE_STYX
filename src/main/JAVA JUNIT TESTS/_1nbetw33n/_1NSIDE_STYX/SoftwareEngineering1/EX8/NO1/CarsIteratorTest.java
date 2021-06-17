@@ -26,6 +26,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CarsIteratorTest {
 
+    @SuppressWarnings("never used")
     private static final Long serialVersionUID = 1L;
     private Long counter;
     private String car0;

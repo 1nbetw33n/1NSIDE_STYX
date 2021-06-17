@@ -19,9 +19,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
-import java.io.FilterInputStream;
 import java.nio.charset.StandardCharsets;
-import java.util.logging.Filter;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -53,31 +51,5 @@ class ToUpperCaseFilterTest {
         assertEquals("HELLOWORLD", this.mixedCases.operation(), "That's not working like it should. Try again!:) " + ++this.counter);
         assertNotEquals("helloworld", this.mixedCases.operation(), "That's not working like it should. Try again!:) " + ++this.counter);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }

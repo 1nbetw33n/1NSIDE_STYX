@@ -33,7 +33,7 @@ class ToUpperCaseFilterTest {
     void setUp()
     {
         this.counter = 0L;
-        this.mixedCases =new ToUpperCaseFilter(new ByteArrayInputStream("HelloWorld".getBytes(StandardCharsets.UTF_8)));
+        this.mixedCases = new ToUpperCaseFilter(new ByteArrayInputStream("HelloWorld".getBytes(StandardCharsets.UTF_8)));
     }
 
     @AfterEach

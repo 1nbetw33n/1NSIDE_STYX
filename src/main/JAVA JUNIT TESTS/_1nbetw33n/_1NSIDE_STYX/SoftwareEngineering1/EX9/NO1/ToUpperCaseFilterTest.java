@@ -19,21 +19,24 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class ToUpperCaseFilterTest {
 
+    @SuppressWarnings("unused")
     private static final long     serialVersionUID = 1L;
     private Long                      counter;
-    private ToUpperCaseFilter mixedCases;
+    private String                    mixedCases;
+    private String                    allLowerCases;
 
     @BeforeEach
-    void setUp()
-    {
+    void setUp() throws IOException {
         this.counter = 0L;
-        this.mixedCases = new ToUpperCaseFilter(new ByteArrayInputStream("HelloWorld".getBytes(StandardCharsets.UTF_8)));
+        this.mixedCases = "HelloWorld";
+        this.allLowerCases = "helloworld";
     }
 
     @AfterEach
@@ -41,15 +44,15 @@ class ToUpperCaseFilterTest {
     {
         this.counter = null;
         this.mixedCases = null;
+        this.allLowerCases = null;
     }
 
     @Test
     @DisplayName("ToUppercase-Behaviour test")
-    void operation()
-    {
-        assertEquals("HelloWorld", this.mixedCases.name, "That's not working like it should. Try again!:) " + ++this.counter);
-        assertEquals("HELLOWORLD", this.mixedCases.operation(), "That's not working like it should. Try again!:) " + ++this.counter);
-        assertNotEquals("helloworld", this.mixedCases.operation(), "That's not working like it should. Try again!:) " + ++this.counter);
+    void operation() throws IOException {
+        assertEquals("HelloWorld", this.mixedCases, "That's not working like it should. Try again!:) " + ++this.counter);
+        assertEquals("HELLOWORLD", ToUpperCaseFilter.asString(new ToUpperCaseFilter(new ByteArrayInputStream(this.mixedCases.getBytes(StandardCharsets.UTF_8)))), "That's not working like it should. Try again!:) " + ++this.counter);
+        assertNotEquals("helloworld", ToUpperCaseFilter.asString(new ToUpperCaseFilter(new ByteArrayInputStream(this.allLowerCases.getBytes(StandardCharsets.UTF_8)))), "That's not working like it should. Try again!:) " + ++this.counter);
     }
 
 }

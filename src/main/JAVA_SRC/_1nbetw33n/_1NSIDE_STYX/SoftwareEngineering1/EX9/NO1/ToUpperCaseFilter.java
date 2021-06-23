@@ -13,28 +13,40 @@
 
 package _1nbetw33n._1NSIDE_STYX.SoftwareEngineering1.EX9.NO1;
 
-import java.io.BufferedReader;
-import java.io.FilterInputStream;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.stream.Collectors;
 
 public class ToUpperCaseFilter extends FilterInputStream {
 
-    protected final String name;
 
-    protected ToUpperCaseFilter(InputStream in)
-    {
-        super(in);
-        this.name = new BufferedReader(new InputStreamReader(in))
-                                .lines()
-                                .parallel()
-                                .collect(Collectors.toList())
-                                .toString()
-                                .replaceAll("\\[", "")
-                                .replaceAll("]", "").toUpperCase();
+
+    protected ToUpperCaseFilter(InputStream in) throws IOException {
+        super(readToUpper(in));
     }
 
-    public String operation() { return this.name.toUpperCase(); }
+    final private static InputStream readToUpper(InputStream in)
+    {
+        return new ByteArrayInputStream(new BufferedReader(new InputStreamReader(in))
+                .lines()
+                .parallel()
+                .collect(Collectors.toList())
+                .toString()
+                .replaceAll("\\[", "")
+                .replaceAll("]", "")
+                .toUpperCase()
+                .getBytes(StandardCharsets.UTF_8)
+        );
+    }
 
+    final protected static String asString(ToUpperCaseFilter in)
+    {
+        return new BufferedReader(new InputStreamReader(in))
+                .lines()
+                .parallel()
+                .collect(Collectors.toList())
+                .toString()
+                .replaceAll("\\[", "")
+                .replaceAll("]", "");
+    }
 }

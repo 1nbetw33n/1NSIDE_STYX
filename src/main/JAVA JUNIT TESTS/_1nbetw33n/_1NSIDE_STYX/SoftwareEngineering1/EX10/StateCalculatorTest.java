@@ -34,27 +34,27 @@ class StateCalculatorTest {
         this.calculator.add(3.);
         this.calculator.multiply(2.);
         this.calculator.subtract(-10.);
-        this.calculator.undo();
     }
 
     @AfterEach
     void tearDown() {
         this.counter = null;
+
     }
 
     @Test
     @DisplayName("Redo Tested Here")
-    void redoTest(){
+    void redoTest() throws Exception {
+        this.calculator.undo();
         this.calculator.redo();
         assertEquals(16., this.calculator.currentState.state, "Looks like this isn't working like its supposed to. Try again:) No." + ++this.counter);
     }
 
     @Test
     @DisplayName("Undo Tested Here")
-    void undoTest()
-    {
+    void undoTest() throws Exception {
         this.calculator.undo();
-        assertEquals(3., this.calculator.currentState.state, "Looks like this isn't working like its supposed to. Try again:) No." + ++this.counter);
+        assertEquals(6., this.calculator.currentState.state, "Looks like this isn't working like its supposed to. Try again:) No." + ++this.counter);
     }
 
     @Test
@@ -62,8 +62,7 @@ class StateCalculatorTest {
     void addTest()
     {
         this.calculator.add(89.);
-        assertEquals(95., this.calculator.currentState.state, "Looks like this isn't working like its supposed to. Try again:) No." + ++this.counter);
-
+        assertEquals(105., this.calculator.currentState.state, "Looks like this isn't working like its supposed to. Try again:) No." + ++this.counter);
     }
 
     @Test
@@ -71,8 +70,7 @@ class StateCalculatorTest {
     void subtractTest()
     {
         this.calculator.subtract(5.);
-        assertEquals(1., this.calculator.currentState.state, "Looks like this isn't working like its supposed to. Try again:) No." + ++this.counter);
-
+        assertEquals(11., this.calculator.currentState.state, "Looks like this isn't working like its supposed to. Try again:) No." + ++this.counter);
     }
 
     @Test
@@ -80,17 +78,13 @@ class StateCalculatorTest {
     void multiplyTest()
     {
         this.calculator.multiply(10.);
-        assertEquals(60., this.calculator.currentState.state, "Looks like this isn't working like its supposed to. Try again:) No." + ++this.counter);
-
+        assertEquals(160., this.calculator.currentState.state, "Looks like this isn't working like its supposed to. Try again:) No." + ++this.counter);
     }
 
     @Test
     @DisplayName("Division Tested Here")
-    void divideTest()
-    {
-        this.calculator.divide(3.);
-        assertEquals(2., this.calculator.currentState.state, "Looks like this isn't working like its supposed to. Try again:) No." + ++this.counter);
-
+    void divideTest() throws Exception {
+        this.calculator.divide(4.);
+        assertEquals(4., this.calculator.currentState.state, "Looks like this isn't working like its supposed to. Try again:) No." + ++this.counter);
     }
-
 }

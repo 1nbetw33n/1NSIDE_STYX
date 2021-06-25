@@ -14,46 +14,85 @@
 package _1nbetw33n._1NSIDE_STYX.SoftwareEngineering1.EX10;
 
 
-
-import java.util.List;
 import java.util.Stack;
 
 public class StateCalculator {
 
-    private List<State> states = new Stack<>();
-    protected State previousState,
+    private final Stack<State> states = new Stack<>();
+    protected     State        previousState,
                              currentState,
                              nextState;
 
-    final protected void redo()
+    public StateCalculator()
     {
-        this.currentState = this.previousState;
+        this.previousState = new State();
+        this.currentState = new State();
+        this.nextState = new State();
     }
 
-    final protected void undo()
-    {
-        this.currentState = this.previousState;
+
+    final protected void redo() throws Exception {
+        if (this.nextState == null){throw new Exception("Nothing to Redo. Undo Something first.");}
+        this.previousState = new State(this.currentState);
+        this.currentState = new State(this.nextState);
+        this.states.add(this.nextState);
+        this.nextState = null;
     }
 
-    final protected void add(final Double NUMBER) { }
+    final protected void undo() throws Exception {
+        if (this.previousState == null){throw new Exception("Nothing to Undo. Do something first ");}
+        this.currentState = new State(this.previousState);
+        this.previousState = new State(this.nextState);
+        this.nextState = new State(this.states.pop());
+    }
 
-    final protected void subtract(final Double NUMBER) { }
+    final protected void add(final Double NUMBER)
+    {
+        this.currentState.state = this.currentState.state == null ? 0. : this.currentState.state;
+        this.previousState = new State(this.currentState);
+        this.currentState.state += NUMBER;
+        this.states.add(new State(this.currentState));
+    }
 
-    final protected void multiply(final Double NUMBER) { }
+    final protected void subtract(final Double NUMBER)
+    {
+        this.currentState.state = this.currentState == null ? 0. : this.currentState.state;
+        this.previousState = new State(this.currentState);
+        this.currentState.state -= NUMBER;
+        this.states.add(new State(this.currentState));
+    }
 
-    final protected void divide(final Double NUMBER) { }
+    final protected void multiply(final Double NUMBER)
+    {
+        this.currentState.state = this.currentState == null ? 0. : this.currentState.state;
+        this.previousState = new State(this.currentState);
+        this.currentState.state *= NUMBER;
+        this.states.add(new State(this.currentState));
+    }
+
+    final protected void divide(final Double NUMBER) throws Exception {
+        if (NUMBER.equals(0.)){throw new Exception("Division by Zero is undefined. Define it first:)");}
+        this.currentState.state = this.currentState == null ? 0. : this.currentState.state;
+        this.previousState = new State(this.currentState);
+        this.currentState.state /= NUMBER;
+        this.states.add(new State(this.currentState));
+    }
 
 
     protected class State {
 
         protected Double state;
 
-        State(){}
+        public State(){
 
-        State(final State STATE){}
+        }
+
+        public State(State STATE)
+        {
+            this.state = STATE.state;
+        }
 
         final public String toString(){return "" + this.state;}
-
     }
 
 }

@@ -31,6 +31,10 @@ class StateCalculatorTest {
     void setUp() {
         this.counter = 0L;
         this.calculator = new StateCalculator();
+        this.calculator.add(3.);
+        this.calculator.multiply(2.);
+        this.calculator.subtract(-10.);
+        this.calculator.undo();
     }
 
     @AfterEach
@@ -40,26 +44,53 @@ class StateCalculatorTest {
 
     @Test
     @DisplayName("Redo Tested Here")
-    void redoTest(){}
+    void redoTest(){
+        this.calculator.redo();
+        assertEquals(16., this.calculator.currentState.state, "Looks like this isn't working like its supposed to. Try again:) No." + ++this.counter);
+    }
 
     @Test
     @DisplayName("Undo Tested Here")
-    void undoTest(){}
+    void undoTest()
+    {
+        this.calculator.undo();
+        assertEquals(3., this.calculator.currentState.state, "Looks like this isn't working like its supposed to. Try again:) No." + ++this.counter);
+    }
 
     @Test
     @DisplayName("Addition Tested Here")
-    void addTest() {}
+    void addTest()
+    {
+        this.calculator.add(89.);
+        assertEquals(95., this.calculator.currentState.state, "Looks like this isn't working like its supposed to. Try again:) No." + ++this.counter);
+
+    }
 
     @Test
     @DisplayName("Subtraction Tested Here")
-    void subtractTest(){}
+    void subtractTest()
+    {
+        this.calculator.subtract(5.);
+        assertEquals(1., this.calculator.currentState.state, "Looks like this isn't working like its supposed to. Try again:) No." + ++this.counter);
+
+    }
 
     @Test
     @DisplayName("Multiplication Tested Here")
-    void multiplyTest(){}
+    void multiplyTest()
+    {
+        this.calculator.multiply(10.);
+        assertEquals(60., this.calculator.currentState.state, "Looks like this isn't working like its supposed to. Try again:) No." + ++this.counter);
+
+    }
 
     @Test
     @DisplayName("Division Tested Here")
-    void divideTest(){}
+    void divideTest()
+    {
+        this.calculator.divide(3.);
+        assertEquals(2., this.calculator.currentState.state, "Looks like this isn't working like its supposed to. Try again:) No." + ++this.counter);
+
+    }
 
 }

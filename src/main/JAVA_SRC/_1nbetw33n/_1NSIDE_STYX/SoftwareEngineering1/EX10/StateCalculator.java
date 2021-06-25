@@ -21,9 +21,9 @@ import java.util.Stack;
 public class StateCalculator {
 
     private List<State> states = new Stack<>();
-    private State previousState,
-                         currentState,
-                         nextState;
+    protected State previousState,
+                             currentState,
+                             nextState;
 
     final protected void redo()
     {
@@ -44,9 +44,9 @@ public class StateCalculator {
     final protected void divide(final Double NUMBER) { }
 
 
-    private class State {
+    protected class State {
 
-        private Double state;
+        protected Double state;
 
         State(){}
 

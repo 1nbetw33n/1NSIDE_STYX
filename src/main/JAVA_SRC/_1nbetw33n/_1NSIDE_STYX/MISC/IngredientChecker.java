@@ -45,7 +45,7 @@ public class IngredientChecker {
     - converts each file line by line into string lists
     - checks for items from INGREDIENTS that are listed in BLACKLIST and adds them to a list
     - if nothing found: adds a single entry to the list 'safe to use:)' and returns the list
-    -else: return list
+    - else: return list
       */
    protected static List<String> checkIfBlacklisted(@NotNull final String INGREDIENTS, @NotNull final String BLACKLIST) throws IOException {
        List<String> ingredients = file2List(INGREDIENTS);

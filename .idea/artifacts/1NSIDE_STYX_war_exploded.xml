@@ -6,6 +6,7 @@
         <exploded>true</exploded>
         <module>1NSIDE_STYX</module>
         <packaging>war</packaging>
+        <unpackNestedArchives>false</unpackNestedArchives>
       </options>
     </properties>
     <root id="root">
@@ -18,7 +19,7 @@
           <element id="library" level="project" name="Maven: org.apiguardian:apiguardian-api:1.1.0" />
           <element id="library" level="project" name="Maven: org.opentest4j:opentest4j:1.2.0" />
           <element id="library" level="project" name="Maven: org.junit.platform:junit-platform-commons:1.7.1" />
-          <element id="library" level="project" name="Maven: org.jetbrains:annotations:21.0.1" />
+          <element id="library" level="project" name="Maven: org.jetbrains:annotations:22.0.0" />
         </element>
       </element>
       <element id="directory" name="META-INF">

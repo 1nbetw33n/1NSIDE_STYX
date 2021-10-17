@@ -30,7 +30,6 @@ class IngredientCheckerTest {
 
     private String ingredients1;
     private String ingredients2;
-    private String       blacklist;
     private List<String> reference;
 
     @SuppressWarnings({"unchecked", "rawtypes"})
@@ -38,7 +37,6 @@ class IngredientCheckerTest {
     void setUp() {
         this.ingredients1 = "/home/bella/Documents/private/PERSONAL/ingredients1.txt";
         this.ingredients2 = "/home/bella/Documents/private/PERSONAL/ingredients2.txt";
-        this.blacklist = "/home/bella/Documents/private/PERSONAL/blacklist.txt";
         this.reference = new ArrayList();
         this.reference.add("aplha");
         this.reference.add("beta");
@@ -51,7 +49,6 @@ class IngredientCheckerTest {
         this.ingredients1 = null;
         this.ingredients2 = null;
         this.reference = null;
-        this.blacklist = null;
     }
 
     @Test
@@ -63,13 +60,13 @@ class IngredientCheckerTest {
     @Test
     @DisplayName("positive checks if any ingredient is on the blacklist")
     void checkProductPositiveTest() throws IOException {
-        assertEquals(checkIfBlacklisted(ingredients1, blacklist), new ArrayList<>(Collections.singleton("beta")));
+        assertEquals(checkIfBlacklisted(ingredients1), new ArrayList<>(Collections.singleton("beta")));
     }
 
     @Test
     @DisplayName("false checks if any ingredient is on the blacklist")
     void checkProductFalseTest() throws IOException {
-        assertEquals(checkIfBlacklisted(ingredients2, blacklist), new ArrayList<>(Collections.singleton("safe to use:)")));
+        assertEquals(checkIfBlacklisted(ingredients2), new ArrayList<>(Collections.singleton("safe to use:)")));
     }
 
 }

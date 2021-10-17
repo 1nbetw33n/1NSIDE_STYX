@@ -29,7 +29,16 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class IngredientChecker {
-    private static final long serialVersionUID = 1L;
+    private static final    long              serialVersionUID = 1L;
+    private static          List<String>      BLACKLIST;
+
+    static {
+        try {
+            BLACKLIST = file2List("/home/bella/Documents/private/PERSONAL/blacklist.txt");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     /*
     file -> stream -> list
@@ -39,7 +48,6 @@ public class IngredientChecker {
         return lines.collect(Collectors.toList());
     }
 
-
     /*
     - gets two file paths
     - converts each file line by line into string lists
@@ -47,12 +55,11 @@ public class IngredientChecker {
     - if nothing found: adds a single entry to the list 'safe to use:)' and returns the list
     - else: return list
       */
-   protected static List<String> checkIfBlacklisted(@NotNull final String INGREDIENTS, @NotNull final String BLACKLIST) throws IOException {
+   protected static List<String> checkIfBlacklisted(@NotNull final String INGREDIENTS) throws IOException {
        List<String> ingredients = file2List(INGREDIENTS);
-       List<String> blacklist = file2List(BLACKLIST);
-       if (ingredients.stream().anyMatch(blacklist::contains)){
+       if (ingredients.stream().anyMatch(BLACKLIST::contains)){
            return ingredients.stream()
-                   .filter(blacklist::contains)
+                   .filter(BLACKLIST::contains)
                            .collect(Collectors.toList());
        }
        else{

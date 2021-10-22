@@ -60,12 +60,14 @@ class IngredientCheckerTest {
     @Test
     @DisplayName("positive checks if any ingredient is on the blacklist")
     void checkProductPositiveTest() throws IOException {
+        //there should be a hit for 'beta' -> beta should be in the list
         assertEquals(checkIfBlacklisted(ingredients1), new ArrayList<>(Collections.singleton("beta")));
     }
 
     @Test
     @DisplayName("false checks if any ingredient is on the blacklist")
     void checkProductFalseTest() throws IOException {
+        //there should be no hits -> only 'safe to use:)' should be in the list
         assertEquals(checkIfBlacklisted(ingredients2), new ArrayList<>(Collections.singleton("safe to use:)")));
     }
 

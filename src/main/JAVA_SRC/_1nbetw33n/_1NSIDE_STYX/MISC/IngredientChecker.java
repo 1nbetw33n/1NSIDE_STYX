@@ -41,28 +41,32 @@ public class IngredientChecker {
     }
 
     /*
-    file -> stream -> list
+    file -> stream -> list of strings -> lower cases each string
     */
     protected static List<String> file2List(@NotNull final String PATH) throws IOException {
         Stream<String> lines = Files.lines(Paths.get(PATH));
-        return lines.collect(Collectors.toList());
+        return lines
+                .map(String::toLowerCase)
+                .collect(Collectors.toList());
     }
 
     /*
-    - gets two file paths
-    - converts each file line by line into string lists
-    - checks for items from INGREDIENTS that are listed in BLACKLIST and adds them to a list
-    - if nothing found: adds a single entry to the list 'safe to use:)' and returns the list
-    - else: return list
+    - gets the path of the file, that contains the ingredients
+    - then converting it into a list of lower cased strings
+    - then checks if any ingredient is on the blacklist
+    - IF NOTHING FOUND: adds a single entry to the list 'safe to use:)' and returns the list
+    - ELSE: returns a list, containing the ingredients with a match
       */
    protected static List<String> checkIfBlacklisted(@NotNull final String INGREDIENTS) throws IOException {
        List<String> ingredients = file2List(INGREDIENTS);
        if (ingredients.stream().anyMatch(BLACKLIST::contains)){
+           //returns the ingredients with a match on the blacklist
            return ingredients.stream()
-                   .filter(BLACKLIST::contains)
-                           .collect(Collectors.toList());
+                             .filter(BLACKLIST::contains)
+                             .collect(Collectors.toList());
        }
        else{
+           //adds a single string 'safe to use:)' to the former empty list
            return new ArrayList<>(Collections.singleton("safe to use:)"));
        }
    }

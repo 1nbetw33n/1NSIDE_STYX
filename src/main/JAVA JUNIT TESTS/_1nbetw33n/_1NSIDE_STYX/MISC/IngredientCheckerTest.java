@@ -20,55 +20,69 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import static _1nbetw33n._1NSIDE_STYX.MISC.IngredientChecker.checkIfBlacklisted;
+import static _1nbetw33n._1NSIDE_STYX.MISC.IngredientChecker.showMatches;
 import static org.junit.jupiter.api.Assertions.*;
 
 class IngredientCheckerTest {
 
+    private String ingredients0;
     private String ingredients1;
     private String ingredients2;
-    private List<String> reference;
+    private String olaplex5;
+    private List<String> referenceList;
 
-    @SuppressWarnings({"unchecked", "rawtypes"})
+    @SuppressWarnings({"unchecked", "rawtypes", "SpellCheckingInspection"})
     @BeforeEach
     void setUp() {
-        this.ingredients1 = "/home/bella/Documents/private/PERSONAL/ingredients1.txt";
-        this.ingredients2 = "/home/bella/Documents/private/PERSONAL/ingredients2.txt";
-        this.reference = new ArrayList();
-        this.reference.add("aplha");
-        this.reference.add("beta");
-        this.reference.add("gamma");
-        this.reference.add("delat");
+        ingredients0 = "/home/bella/Documents/private/PERSONAL/ingredientsTest0_file2List.txt";
+        ingredients1 = "/home/bella/Documents/private/PERSONAL/ingredientsTest1_file2List.txt";
+        ingredients2 = "/home/bella/Documents/private/PERSONAL/ingredientsTest2_file2List.txt";
+        olaplex5 = "/home/bella/Documents/private/PERSONAL/OLAPLEX5.txt";
+        referenceList = new ArrayList();
+        referenceList.add("aplha");
+        referenceList.add("beta");
+        referenceList.add("gamma");
+        referenceList.add("delat");
     }
 
     @AfterEach
     void tearDown() {
-        this.ingredients1 = null;
-        this.ingredients2 = null;
-        this.reference = null;
+        ingredients0 = null;
+        ingredients1 = null;
+        ingredients2 = null;
+        olaplex5 = null;
+        referenceList = null;
     }
 
+
     @Test
-    @DisplayName("checks if file content is converted correctly into a list ")
+    @DisplayName("checks if file content is converted correctly into a list")
     void file2ListTest() throws IOException {
-        assertEquals(this.reference, IngredientChecker.file2List(this.ingredients1));
+        assertEquals(referenceList, IngredientChecker.file2List(ingredients0));
     }
 
     @Test
     @DisplayName("positive checks if any ingredient is on the blacklist")
     void checkProductPositiveTest() throws IOException {
-        //there should be a hit for 'beta' -> beta should be in the list
-        assertEquals(checkIfBlacklisted(ingredients1), new ArrayList<>(Collections.singleton("beta")));
+        //there should be a hit for "paraben"
+        assertEquals(Arrays.asList("methylparabene", "bisaminopropyl dimethicone","isopropanol"), showMatches(ingredients1));
+    }
+
+    @Test
+    @DisplayName("checks with a real product")
+    void checkOlaplex5() throws IOException {
+        assertEquals(Arrays.asList("peg-8", "amodimethicone", "phenoxyethanol"), showMatches(olaplex5));
     }
 
     @Test
     @DisplayName("false checks if any ingredient is on the blacklist")
     void checkProductFalseTest() throws IOException {
         //there should be no hits -> only 'safe to use:)' should be in the list
-        assertEquals(checkIfBlacklisted(ingredients2), new ArrayList<>(Collections.singleton("safe to use:)")));
+        assertEquals(showMatches(ingredients2), new ArrayList<>(Collections.singleton("safe to use:)")));
     }
 
 }

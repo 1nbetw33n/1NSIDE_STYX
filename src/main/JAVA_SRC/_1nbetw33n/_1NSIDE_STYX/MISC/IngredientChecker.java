@@ -26,49 +26,68 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class IngredientChecker {
-    private static final    long              serialVersionUID = 1L;
-    private static          List<String>      BLACKLIST;
+    private static final long         serialVersionUID = 1L;
+    private static       List<String> BLACKLIST;
 
+    /*
+    this block will always be executed before any method call
+     */
     static {
         try {
-            BLACKLIST = file2List("/home/bella/Documents/private/PERSONAL/blacklist.txt");
+            //blacklist.txt -> BLACKLIST as List<String>
+            BLACKLIST = file2List("/home/bella/Documents/private/PERSONAL/BLACKLIST.txt")
+                    .stream()
+                    //removes the first 5 lines from the blacklist, since these are only comments
+                    .skip(5)
+                    .collect(Collectors.toList());
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     /*
-    file -> stream -> list of strings -> lower cases each string
+    file -> stream -> lower casing each string -> list of strings
     */
     protected static List<String> file2List(@NotNull final String PATH) throws IOException {
-        Stream<String> lines = Files.lines(Paths.get(PATH));
-        return lines
+        List<String> list = Files
+                .lines(Paths.get(PATH))
                 .map(String::toLowerCase)
                 .collect(Collectors.toList());
+        //removes empty lines
+        list.removeAll(Collections.singleton(""));
+        return list;
     }
 
     /*
-    - gets the path of the file, that contains the ingredients
-    - then converting it into a list of lower cased strings
-    - then checks if any ingredient is on the blacklist
-    - IF NOTHING FOUND: adds a single entry to the list 'safe to use:)' and returns the list
-    - ELSE: returns a list, containing the ingredients with a match
-      */
-   protected static List<String> checkIfBlacklisted(@NotNull final String INGREDIENTS) throws IOException {
-       List<String> ingredients = file2List(INGREDIENTS);
-       if (ingredients.stream().anyMatch(BLACKLIST::contains)){
-           //returns the ingredients with a match on the blacklist
-           return ingredients.stream()
-                             .filter(BLACKLIST::contains)
-                             .collect(Collectors.toList());
-       }
-       else{
-           //adds a single string 'safe to use:)' to the former empty list
-           return new ArrayList<>(Collections.singleton("safe to use:)"));
-       }
-   }
+    gets the path of the file, that contains the ingredients
+    - then using file2List(@NotNull final String PATH)
+    - then checks for each ingredient if the ingredient has a match on my blacklist
+    IF ingredient is on my blacklist:
+        adds the ingredient to list of matches
+    RETURNS a list with all the ingredients that got a match OR a list containing only the string  'safe to use:)' if there are no matching ingredients
+     */
+    protected static List<String> showMatches(@NotNull final String INGREDIENTS) throws IOException {
+        List<String> matches = new ArrayList<>();
+        List<String> ingredients          = file2List(INGREDIENTS);
+        for (String ingredient : ingredients) {
+            if (BLACKLIST.stream().anyMatch(ingredient::contentEquals)){
+               matches.add(ingredient);
+            }
+        }
+        matches.forEach(System.out::println);
+        return matches.isEmpty() ? new ArrayList<>(Collections.singleton("safe to use:)")) : matches;
+    }
+
+
+    public static void main(String[] args) throws IOException {
+        System.out.println(showMatches("/home/bella/Documents/private/PERSONAL/INGREDIENTS.txt"));
+        //BLACKLIST.stream().distinct().collect(Collectors.toList()).forEach(System.out::println);
+    }
+
+
+
+
 
 }

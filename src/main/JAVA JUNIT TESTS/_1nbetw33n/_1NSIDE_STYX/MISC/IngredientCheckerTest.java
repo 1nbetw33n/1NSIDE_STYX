@@ -68,14 +68,15 @@ class IngredientCheckerTest {
     @Test
     @DisplayName("positive checks if any ingredient is on the blacklist")
     void checkProductPositiveTest() throws IOException {
-        //there should be a hit for "paraben"
+        //there should be hits for "methylparabene", "bisaminopropyl dimethicone","isopropanol"
         assertEquals(Arrays.asList("methylparabene", "bisaminopropyl dimethicone","isopropanol"), showMatches(ingredients1));
     }
 
     @Test
     @DisplayName("checks with a real product")
     void checkOlaplex5() throws IOException {
-        assertEquals(Arrays.asList("peg-8", "amodimethicone", "phenoxyethanol"), showMatches(olaplex5));
+        //there should be hits for "cetyl esters", "isododecane", "quaternium-95", "peg-8", "c11-15 pareth-7", "amodimethicone", "c12-13 pareth-23", "c12-13 pareth-3", "laureth-9", "phenoxyethanol"
+        assertEquals(Arrays.asList("cetyl esters", "isododecane", "quaternium-95", "peg-8", "c11-15 pareth-7", "amodimethicone", "c12-13 pareth-23", "c12-13 pareth-3", "laureth-9", "phenoxyethanol"), showMatches(olaplex5));
     }
 
     @Test

@@ -83,7 +83,7 @@ public class IngredientChecker {
 
     public static void main(String[] args) throws IOException {
         System.out.println(showMatches("/home/bella/Documents/private/PERSONAL/INGREDIENTS.txt"));
-        //BLACKLIST.stream().distinct().collect(Collectors.toList()).forEach(System.out::println);
+       // BLACKLIST.stream().distinct().collect(Collectors.toList()).forEach(System.out::println);
     }
 
 

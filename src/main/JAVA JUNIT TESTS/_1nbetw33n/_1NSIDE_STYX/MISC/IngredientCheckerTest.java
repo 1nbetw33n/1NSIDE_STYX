@@ -38,10 +38,10 @@ class IngredientCheckerTest {
     @SuppressWarnings({"unchecked", "rawtypes", "SpellCheckingInspection"})
     @BeforeEach
     void setUp() {
-        ingredients0 = "/home/bella/Documents/private/PERSONAL/ingredientsTest0_file2List.txt";
-        ingredients1 = "/home/bella/Documents/private/PERSONAL/ingredientsTest1_file2List.txt";
-        ingredients2 = "/home/bella/Documents/private/PERSONAL/ingredientsTest2_file2List.txt";
-        olaplex5 = "/home/bella/Documents/private/PERSONAL/OLAPLEX5.txt";
+        ingredients0 = "/home/bella/Documents/private/PERSONAL/COSMETIC/TEST/ingredientsTest0_file2List.txt";
+        ingredients1 = "/home/bella/Documents/private/PERSONAL/COSMETIC/TEST/ingredientsTest1_file2List.txt";
+        ingredients2 = "/home/bella/Documents/private/PERSONAL/COSMETIC/TEST/ingredientsTest2_file2List.txt";
+        olaplex5 = "/home/bella/Documents/private/PERSONAL/COSMETIC/TEST/OLAPLEX5.txt";
         referenceList = new ArrayList();
         referenceList.add("aplha");
         referenceList.add("beta");

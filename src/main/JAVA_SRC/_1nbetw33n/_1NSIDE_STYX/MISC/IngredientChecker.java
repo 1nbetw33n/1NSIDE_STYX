@@ -37,7 +37,7 @@ public class IngredientChecker {
     static {
         try {
             //blacklist.txt -> BLACKLIST as List<String>
-            BLACKLIST = file2List("/home/bella/Documents/private/PERSONAL/BLACKLIST.txt")
+            BLACKLIST = file2List("/home/bella/Documents/private/PERSONAL/COSMETIC/BLACKLIST.txt")
                     .stream()
                     //removes the first 5 lines from the blacklist, since these are only comments
                     .skip(5)
@@ -82,7 +82,7 @@ public class IngredientChecker {
 
 
     public static void main(String[] args) throws IOException {
-        System.out.println(showMatches("/home/bella/Documents/private/PERSONAL/INGREDIENTS.txt"));
+        System.out.println(showMatches("/home/bella/Documents/private/PERSONAL/COSMETIC/INGREDIENTS.txt"));
        // BLACKLIST.stream().distinct().collect(Collectors.toList()).forEach(System.out::println);
     }
 

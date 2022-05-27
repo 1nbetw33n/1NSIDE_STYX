@@ -13,7 +13,7 @@
 
 package _1nbetw33n._1NSIDE_STYX.MISC.SS22_EidP_Exercises;
 
-@SuppressWarnings("FieldMayBeFinal")
+@SuppressWarnings({"FieldMayBeFinal", "unused"})
 public class Projektwoche {
 
     private String name;

@@ -16,7 +16,7 @@ package _1nbetw33n._1NSIDE_STYX.MISC.SS22_EidP_Exercises;
 import java.util.ArrayList;
 import java.util.List;
 
-@SuppressWarnings("FieldMayBeFinal")
+@SuppressWarnings({"FieldMayBeFinal", "unused"})
 public class Kurs {
 
     private String name;

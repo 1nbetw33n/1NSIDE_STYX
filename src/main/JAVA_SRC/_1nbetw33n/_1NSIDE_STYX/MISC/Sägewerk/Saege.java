@@ -11,7 +11,24 @@
  *
  */
 
+//
+//created by 0x1nbetw33n on 29/05/2022
+//
+
 package _1nbetw33n._1NSIDE_STYX.MISC.Sägewerk;
 
 public abstract class Saege implements Bearbeiten{
+
+    private String name;
+
+
+    public void saegen(Baumstamm stamm, double laenge) {
+        System.out.println(stamm.getName() + " " + laenge + " m " + "saegen mit " + this.getName());
+        stamm.kuerzen(laenge);
+    }
+
+    public String getName(){return name;}
+
+    public void setName(String name){this.name = name;}
+
 }

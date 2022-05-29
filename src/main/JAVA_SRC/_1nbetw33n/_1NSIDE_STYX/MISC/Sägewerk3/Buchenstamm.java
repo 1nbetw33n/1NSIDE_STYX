@@ -15,15 +15,15 @@
  //
 //created by 0x1nbetw33n on 29/05/2022
 //
-
- package _1nbetw33n._1NSIDE_STYX.MISC.Sägewerk2;
+ package _1nbetw33n._1NSIDE_STYX.MISC.Sägewerk3;
 
  public class Buchenstamm extends Baumstamm{
 
-     public Buchenstamm(double laenge, double dicke) {
-         super(laenge, dicke);
-         setBruchfestigkeit(690.);
-         setGewicht(60.);
-     }
+  public Buchenstamm(double laenge) {
+      super(laenge);
+      setName("Buche");
+  }
+
+  double gewicht() {return getLaenge() * 60;}
 
  }

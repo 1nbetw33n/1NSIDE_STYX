@@ -15,22 +15,36 @@
  //
 //created by 0x1nbetw33n on 29/05/2022
 //
+
  package _1nbetw33n._1NSIDE_STYX.MISC.Sägewerk2;
 
- public abstract class Baumstamm {
+ public class Baumstamm {
 
-  private double laenge;
-  private String name;
+     private double laenge;
+     private double dicke;
+     private double bruchfestigkeit;
+     private double gewicht;
 
-  public Baumstamm(double laenge) {this.laenge = laenge;}
 
-  void kuerzen(double laenge){this.laenge -= laenge;}
+     public Baumstamm(double laenge, double dicke){
+         this.laenge = laenge;
+         this.dicke = dicke;
+     }
 
-  abstract double gewicht();
+     public double kuerzen(double laenge, double dicke){
+         return laenge * dicke * getGewicht();
+     }
 
-  public double getLaenge(){return laenge;}
+     public double getLaenge(){return this.laenge;}
 
-  public void setName(String name){this.name = name;}
+     public double getDicke(){return this.dicke;}
 
-  public String getName(){return name;}
+     public void setBruchfestigkeit(double bruchfestigkeit) {this.bruchfestigkeit = bruchfestigkeit;}
+
+     public double getBruchfestigkeit() {return this.bruchfestigkeit;}
+
+     public void setGewicht(double gewicht){this.gewicht = gewicht;}
+
+     public double getGewicht() {return gewicht;}
+
  }

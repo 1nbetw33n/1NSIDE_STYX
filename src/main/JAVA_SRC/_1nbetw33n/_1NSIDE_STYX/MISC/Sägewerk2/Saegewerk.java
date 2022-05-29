@@ -15,23 +15,52 @@
  //
 //created by 0x1nbetw33n on 29/05/2022
 //
+
  package _1nbetw33n._1NSIDE_STYX.MISC.Sägewerk2;
+
 
  public class Saegewerk {
 
-
-     public static void main(String[] args) {
-
-         Saege stichsaege = new Stichsaege();
-         Saege kettensaege = new Kettensaege();
-         Baumstamm eiche = new Eichenstamm(5.);
-         Baumstamm buche = new Buchenstamm(7.);
-
-         stichsaege.saegen(eiche, 1.);
-         kettensaege.saegen(buche, 2.);
-
-         System.out.println("Eiche hat ein Restgewicht von " + eiche.gewicht());
-         System.out.println("Eiche hat ein Restgewicht von " + buche.gewicht());
+     public static void main(String[] args){
+         //erzeugt 4 Balken mit Länge, Dicke, Bruchfestigkeit
+         Balken[] balken = {new Balken(1., 1., 20.),
+                                           new Balken(2., 1., 50.),
+                                           new Balken(2., 2., 30.),
+                                           new Balken(2., 1., 20.)
+         };
+         //erzeuge 6 Baumstämme bestimmter Holzart, Laenge, Dicke (Bruchfestigkeit ergibt sich implizit durch die Holzart)
+         Baumstamm[] staemme = {new Eichenstamm(2., 2.),
+                                                        new Eichenstamm(3., 2.),
+                                                        new Buchenstamm(2., 2.),
+                                                        new Buchenstamm(2., 2.),
+                                                        new Fichtenstamm(2., 2.),
+                                                        new Fichtenstamm(2., 2.)
+         };
+         schneiden(balken, staemme);
      }
 
+     public static void schneiden(Balken[] balken, Baumstamm[] staemme){
+         double gewichtGeschnitten = 0;
+         for (int i = 0; i < balken.length; i++){
+             double dickeBalken = balken[i].getDicke();
+             double laengeBalken = balken[i].getLaenge();
+             double festigkeitBalken = balken[i].getBruchfestigkeit();
+             //prüfe jeden Baumstamm, ob der i-te Balken hier rausgeschnitten werden kann
+             for (int j = 0; i < staemme.length; j++){
+                 double dickeStamm = staemme[j].getDicke();
+                 double laengeStamm = staemme[j].getLaenge();
+                 double festigkeitStamm = staemme[j].getBruchfestigkeit();
+                 //teste, ob es passt
+                 if ((dickeBalken <= dickeStamm) && (laengeBalken <= laengeStamm) && (festigkeitBalken <= festigkeitStamm)){
+                     //j-ten Baum kürzen
+                     //Resultat ist Gewicht des geschnittenen Balkens
+                     double gewichtBalken = staemme[j].kuerzen(laengeBalken, dickeBalken);
+                     System.out.println("Gewicht abgeschnittener Balken ist " + gewichtBalken + " kg");
+                     gewichtGeschnitten += gewichtBalken;
+                     break;
+                 }
+             }
+         }
+         System.out.println("Das Gewicht der Balken ist " + gewichtGeschnitten + " kg");
+     }
  }

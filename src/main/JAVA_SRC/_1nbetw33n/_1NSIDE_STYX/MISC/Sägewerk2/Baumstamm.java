@@ -15,15 +15,22 @@
  //
 //created by 0x1nbetw33n on 29/05/2022
 //
- package _1nbetw33n._1NSIDE_STYX.MISC.Sägewerk;
+ package _1nbetw33n._1NSIDE_STYX.MISC.Sägewerk2;
 
- public class Buchenstamm extends Baumstamm{
+ public abstract class Baumstamm {
 
-  public Buchenstamm(double laenge) {
-      super(laenge);
-      setName("Buche");
-  }
+  private double laenge;
+  private String name;
 
-  double gewicht() {return getLaenge() * 60;}
+  public Baumstamm(double laenge) {this.laenge = laenge;}
 
+  void kuerzen(double laenge){this.laenge -= laenge;}
+
+  abstract double gewicht();
+
+  public double getLaenge(){return laenge;}
+
+  public void setName(String name){this.name = name;}
+
+  public String getName(){return name;}
  }

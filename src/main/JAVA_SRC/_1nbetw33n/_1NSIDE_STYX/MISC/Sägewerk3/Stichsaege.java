@@ -15,9 +15,10 @@
 //created by 0x1nbetw33n on 29/05/2022
 //
 
-package _1nbetw33n._1NSIDE_STYX.MISC.Sägewerk2;
+package _1nbetw33n._1NSIDE_STYX.MISC.Sägewerk3;
 
-public interface Bearbeiten {
+public class Stichsaege extends Saege{
 
-    void saegen(Baumstamm stamm, double laenge);
+    public Stichsaege() {setName("Stichsaege");}
+
 }

@@ -1,0 +1,26 @@
+@startuml
+left to right direction
+skinparam packageStyle rectancle
+
+rectangle ICED-OUT_REGISTER+LOGIN_UC-DIAGRAM {
+    control loginController
+    boundary homepage
+    boundary register_PopUp
+    boundary login_PopUp
+    actor user
+    database database
+    (login_PopUp \n -------------------------------------------------------------- \n **Extension Points** \n -------------------------------------------------------------- \n registerPopUp) as ep
+
+    user -- homepage
+    user -- ep
+    login_PopUp ..> ep : <<extend>>
+    register_PopUp ..> ep : <<extend>>
+
+
+
+    loginController ..> homepage
+    loginController ..> register_PopUp
+    loginController .left.> database
+    loginController ..> login_PopUp
+}
+@enduml

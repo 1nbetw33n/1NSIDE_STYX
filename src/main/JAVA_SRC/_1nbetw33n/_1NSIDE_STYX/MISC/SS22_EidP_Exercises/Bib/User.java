@@ -35,11 +35,13 @@ public class User extends Person {
     public Media[] lentList(){return lentObjects;}
 
     public void lendMedia(Media media) {
-        if (media.getOwner() != null) {throw new IllegalStateException("Media cant lent because somebody else already lent it");}
+        if (media.getOwner() != null) {throw new IllegalStateException("Media cant be lent because somebody else already lent it");}
         for (int i = 0; i < lentObjects.length; i++) {
-            if (lentObjects[i] == null) {lentObjects[i] = media;}
-            media.setOwner(this);
-            break;
+            if (lentObjects[i] == null) {
+                lentObjects[i] = media;
+                media.setOwner(this);
+                break;
+            }
         }
     }
 
@@ -49,7 +51,7 @@ public class User extends Person {
     }
 
     public void returnMedia(Media media){
-        if (!containsMedia(media)){throw new IllegalStateException("Media cant be returned that ain't lent");}
+        if (!containsMedia(media)){throw new IllegalStateException("Media that ain't lent cant be returned");}
         for (int i = 0; i < lentObjects.length; i++){
             if (lentObjects[i].equals(media)){
                 media.setOwner(null);

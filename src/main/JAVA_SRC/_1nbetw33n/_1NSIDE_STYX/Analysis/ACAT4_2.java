@@ -19,6 +19,7 @@
  package _1nbetw33n._1NSIDE_STYX.Analysis;
 
  import java.util.Scanner;
+ import java.util.function.Function;
 
  public class ACAT4_2 {
 
@@ -26,34 +27,35 @@
      private static double eps;
 
 
-     private static void setUp(){
+     private static void setUpDelta() {
          Scanner sc = new Scanner(System.in);
          System.out.println("Enter x0\n");
-         eps = sc.nextDouble();
-         System.out.println("Enter epsilon\n");
          x0 = sc.nextDouble();
+         System.out.println("Enter epsilon\n");
+         eps = sc.nextDouble();
      }
 
-     private static void tearDown(){
+
+     private static void tearDownDeltas() {
          x0 = 0;
          eps = 0;
      }
 
-     private static double delta1(double x0, double eps){
-         if (!(eps > 0)){
+     private static double delta1(double x0, double eps) {
+         if (!(eps > 0)) {
              throw new IllegalArgumentException("eps shall be >0");
          }
-         return Math.min(1, eps / (23 + 10 * Math.abs(x0)));
+         return Math.min(1, eps / (19 + 18 * Math.abs(x0)));
      }
 
-     private static double delta2(double x0, double eps){
-         if(!(x0 > 0) || !(eps > 0)){
+     private static double delta2(double x0, double eps) {
+         if (!(x0 > 0) || !(eps > 0)) {
              throw new IllegalArgumentException("x0 shall be ∈ ℝ+ AND eps shall be > 0");
          }
-         return Math.min(1, (eps * Math.sqrt(11 * x0 + 9)) / 11);
+         return Math.min(1, (eps * Math.sqrt(19 * x0 + 18)) / 19);
      }
 
-     private double eval(double x){
+     private double eval(double x) {
          return 0.;
      }
 
@@ -70,34 +72,46 @@
      }
       */
 
-     /*
-     private static double nullstelleIterative(Function f, double a, double b){
-        while(Math.abs(a - b) < 10E-6){
-            if(f.eval((a - b) / 2) * f.eval(b) < 0){}
-                a = (a + b) / 2;
-            } else {
-                b = (a + b) / 2;
-            }
-        }
-        return (a + b) / 2;
+
+     private static double nullstelleIterative(Function<Double, Double> f, double a, double b) {
+         double center =  0.0;
+         while (Math.abs(a - b) >= 1E-6) {
+             center = (a + b) / 2;
+             if (f.apply(center) == 0) {
+                 break;
+             } else if (f.apply(a)*f.apply(center) < 0) {
+                 b = center;
+             }else{
+                 a=center;
+             }
+         }
+         return center;
      }
-      */
+
 
      private static void testDelta1(){
-         setUp();
+         setUpDelta();
          System.out.println(delta1(x0, eps));
-         tearDown();
+         tearDownDeltas();
      }
 
      private static void testDelta2(){
-         setUp();
+         setUpDelta();
          System.out.println(delta2(x0, eps));
-         tearDown();
+         tearDownDeltas();
      }
 
      public static void main(String[] args){
          //testDelta1();
-         testDelta2();
+        // testDelta2();
+         double a = 1e-6;
+         double b = 1E-6;
+         System.out.println(a + " | " + b);
+         //System.out.println(nullstelleIterative());
+
+         for(int i = 0; i < datastructure.length; i++){
+             a += datastructure[i];
+         }
      }
 
  }

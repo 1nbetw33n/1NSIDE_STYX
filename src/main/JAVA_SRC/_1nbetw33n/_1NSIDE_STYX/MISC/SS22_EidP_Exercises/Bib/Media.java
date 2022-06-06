@@ -31,6 +31,7 @@ public abstract class Media {
     public abstract String signature();
 
     public int getID(){return id;}
+
     public void setOwner(User owner) {this.owner = owner;}
 
     public User getOwner() {return this.owner;}

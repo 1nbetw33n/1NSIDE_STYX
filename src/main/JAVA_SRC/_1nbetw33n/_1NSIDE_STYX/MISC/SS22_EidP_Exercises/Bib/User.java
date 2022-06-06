@@ -34,7 +34,7 @@ public class User extends Person {
 
     public Media[] lentList(){return lentObjects;}
 
-    public void lendMedia(Media media) {
+    public void lendMedia(Media media) throws Exception {
         if (media.getOwner() != null) {throw new IllegalStateException("Media cant be lent because somebody else already lent it");}
         for (int i = 0; i < lentObjects.length; i++) {
             if (lentObjects[i] == null) {
@@ -43,6 +43,7 @@ public class User extends Person {
                 break;
             }
         }
+        throw new Exception("You already lent 10 items - return 1 item, before you can lend one more");
     }
 
     private boolean containsMedia(Media media){

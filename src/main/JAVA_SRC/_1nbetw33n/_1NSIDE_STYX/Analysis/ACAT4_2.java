@@ -74,46 +74,41 @@
 
 
      private static double nullstelleIterative(Function<Double, Double> f, double a, double b) {
-         double center =  0.0;
+         double center = 0.0;
          while (Math.abs(a - b) >= 1E-6) {
              center = (a + b) / 2;
              if (f.apply(center) == 0) {
                  break;
-             } else if (f.apply(a)*f.apply(center) < 0) {
+             } else if (f.apply(a) * f.apply(center) < 0) {
                  b = center;
-             }else{
-                 a=center;
+             } else {
+                 a = center;
              }
          }
          return center;
      }
 
 
-     private static void testDelta1(){
+     private static void testDelta1() {
          setUpDelta();
          System.out.println(delta1(x0, eps));
          tearDownDeltas();
      }
 
-     private static void testDelta2(){
+     private static void testDelta2() {
          setUpDelta();
          System.out.println(delta2(x0, eps));
          tearDownDeltas();
      }
 
-     public static void main(String[] args){
+     public static void main(String[] args) {
          //testDelta1();
-        // testDelta2();
+         // testDelta2();
          double a = 1e-6;
          double b = 1E-6;
          System.out.println(a + " | " + b);
          //System.out.println(nullstelleIterative());
-
-         for(int i = 0; i < datastructure.length; i++){
-             a += datastructure[i];
-         }
      }
-
  }
 
 

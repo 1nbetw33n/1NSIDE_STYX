@@ -19,8 +19,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 /*
  * Created by 0x1nbetw33n on 08/06/2022
@@ -48,11 +47,17 @@ class SnakeMatrixIteratorTest {
 
     @Test
     void testHasNext() {
-        for (int i = 1; i < 8; i++){
-            assertTrue(snakeMatrixIterator.hasNext());
-            snakeMatrixIterator.next();
-        }
-        assertFalse(snakeMatrixIterator.hasNext());
+      while (snakeMatrixIterator.hasNext()) {
+          assertEquals(1, snakeMatrixIterator.next());
+          assertEquals(2, snakeMatrixIterator.next());
+          assertEquals(3, snakeMatrixIterator.next());
+          assertEquals(6, snakeMatrixIterator.next());
+          assertEquals(5, snakeMatrixIterator.next());
+          assertEquals(4, snakeMatrixIterator.next());
+          assertEquals(7, snakeMatrixIterator.next());
+          assertEquals(8, snakeMatrixIterator.next());
+          assertEquals(9, snakeMatrixIterator.next());
+      }
     }
 
     /*

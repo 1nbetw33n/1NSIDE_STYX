@@ -33,25 +33,37 @@ public class SnakeMatrixIterator<T> implements Iterator<T> {
     public SnakeMatrixIterator(@NotNull T[][] snakeMatrix) {this.snakeMatrix = snakeMatrix;}
 
     public boolean hasNext() {
-        if (!(j  < snakeMatrix[j].length)){return false;}
+        if (!(i < snakeMatrix[0].length)){return false;}
         return true;
     }
 
     public T next() {
         if (!hasNext()){throw new NoSuchElementException();}
         //EVEN ROWs
-        if ((j % 2) == 0){
+        if ((i % 2) == 0){
             //FIRST TO PENULTIMATE INDEX
-            if (i < snakeMatrix.length - 1){return snakeMatrix[i++][j];}
+            if (j < snakeMatrix.length - 1){return snakeMatrix[i][j++];}
             //LAST INDEX
-            else {return snakeMatrix[i][j++];}
+            else {return snakeMatrix[i++][j];}
         }
         //ODD ROws
         else{
             //LAST INDEX TO SECOND INDEX
-            if (i > 1){return snakeMatrix[i--][j];}
+            if (j > 0){return snakeMatrix[i][j--];}
             //FIRST INDEX
-            else{return snakeMatrix[i][j++];}
+            else{return snakeMatrix[i++][j];}
+        }
+    }
+
+    public static void main(String[] args){
+        Integer[][] snakeMatrix = new Integer[][]{
+                                                                                {1, 2, 3},
+                                                                                {4, 5, 6},
+                                                                                {7, 8, 9}
+                                                                                };
+        SnakeMatrixIterator<Integer> snakeMatrixIterator = new SnakeMatrixIterator<>(snakeMatrix);
+        while(snakeMatrixIterator.hasNext()){
+            System.out.println(snakeMatrixIterator.next());
         }
     }
 

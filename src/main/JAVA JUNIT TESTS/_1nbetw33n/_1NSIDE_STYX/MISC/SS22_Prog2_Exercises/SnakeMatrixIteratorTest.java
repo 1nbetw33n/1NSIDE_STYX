@@ -19,6 +19,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.function.Function;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 /*
@@ -28,7 +30,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class SnakeMatrixIteratorTest {
 
     private Integer[][] snakeMatrix;
-    private SnakeMatrixIterator<Integer> snakeMatrixIterator;
+    private SnakeMatrixIterator<?> snakeMatrixIterator;
 
     @BeforeEach
     private void setup() {
@@ -58,6 +60,7 @@ class SnakeMatrixIteratorTest {
           assertEquals(8, snakeMatrixIterator.next());
           assertEquals(9, snakeMatrixIterator.next());
       }
+      assertFalse(snakeMatrixIterator.hasNext());
     }
 
     /*

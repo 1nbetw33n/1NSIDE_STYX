@@ -27,8 +27,7 @@ import java.util.NoSuchElementException;
 public class SnakeMatrixIterator<T> implements Iterator<T> {
     
     private T[][] snakeMatrix;
-    private int i;
-    private int j;
+    private int j, i;
 
     public SnakeMatrixIterator(@NotNull T[][] snakeMatrix) {this.snakeMatrix = snakeMatrix;}
 

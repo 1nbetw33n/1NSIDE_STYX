@@ -17,10 +17,10 @@ public class InfinityLoop {
 
     @SuppressWarnings("InfiniteLoopStatement")
     static void initLoop(){
-        long x = 2;
+        long x = 1;
         while(true){
-            x += Math.pow(x, 2);
-            System.out.println(x + "\n");
+            x *= Math.pow(x, x);
+            System.out.println(x);
         }
     }
 

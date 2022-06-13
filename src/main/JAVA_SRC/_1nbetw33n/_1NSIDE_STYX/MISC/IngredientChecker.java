@@ -51,7 +51,7 @@ public class IngredientChecker {
     /*
     file -> stream -> lower casing each string -> list of strings
     */
-    protected static List<String> file2List(@NotNull final String PATH) throws IOException {
+    protected static @NotNull List<String> file2List(@NotNull final String PATH) throws IOException {
        @SuppressWarnings("resource")
         List<String> list = Files
                 .lines(Paths.get(PATH))
@@ -70,7 +70,7 @@ public class IngredientChecker {
         adds the ingredient to list of matches
     RETURNS a list with all the ingredients that got a match OR a list containing only the string  'safe to use:)' if there are no matching ingredients
      */
-    protected static List<String> showMatches(@NotNull final String INGREDIENTS) throws IOException {
+    protected static @NotNull List<String> showMatches(@NotNull final String INGREDIENTS) throws IOException {
         List<String> matches = new ArrayList<>();
         List<String> ingredients = file2List(INGREDIENTS);
         for (String ingredient : ingredients) {

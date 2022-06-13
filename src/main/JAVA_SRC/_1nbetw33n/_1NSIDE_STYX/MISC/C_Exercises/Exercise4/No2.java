@@ -13,12 +13,15 @@
 
 package _1nbetw33n._1NSIDE_STYX.MISC.C_Exercises.Exercise4;
 
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
+
 import java.util.*;
 
 public class No2 {
 
     //EVERYTHING ALLOWED
-    static int[] toBinaryString(int integer) throws Exception {
+    static int @NotNull [] toBinaryString(int integer) throws Exception {
         if (integer < 0){
             throw new Exception("Outside of interval [0, infinity]");
         }
@@ -36,7 +39,8 @@ public class No2 {
     }
 
     //ARRAYS ONLY
-    static int[] toBinaryString2(int integer) throws Exception {
+    @Contract(pure = true)
+    static int @NotNull [] toBinaryString2(int integer) throws Exception {
         if (integer < 0){
             throw new Exception("Outside of interval [0, infinity]");
         }

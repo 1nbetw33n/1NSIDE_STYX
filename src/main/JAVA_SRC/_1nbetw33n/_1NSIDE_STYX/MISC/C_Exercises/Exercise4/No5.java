@@ -12,12 +12,15 @@
  *
  */
 
+
 package _1nbetw33n._1NSIDE_STYX.MISC.C_Exercises.Exercise4;
 
 /*
  * Created by 0x1nbetw33n on 13/06/2022
  * Virgo Supercluster, Milky Way - Earth A-6847
  */
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
 import java.util.List;
@@ -31,7 +34,7 @@ public class No5 {
     static{FILTER_LIST = filterString.chars().mapToObj(c -> (char) c).collect(Collectors.toList());}
 
     @SuppressWarnings("SameParameterValue")
-    static void countOccurrences(String text, List< ? super Character> filterList){
+    static void countOccurrences(@NotNull String text, List< ? super Character> filterList){
         int unknownCharacters = 0;
         HashMap<? super Character, Integer> matches = new HashMap<>();
         List<? extends Character> textAsList = text.chars().mapToObj(c -> (char) c).collect(Collectors.toList());

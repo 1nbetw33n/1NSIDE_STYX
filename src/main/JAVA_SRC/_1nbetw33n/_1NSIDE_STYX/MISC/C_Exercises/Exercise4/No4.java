@@ -19,12 +19,14 @@ package _1nbetw33n._1NSIDE_STYX.MISC.C_Exercises.Exercise4;
  * Virgo Supercluster, Milky Way - Earth A-6847
  */
 
+import org.jetbrains.annotations.NotNull;
+
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class No4 {
 
-    static boolean isPalindrome(String input) {
+    static boolean isPalindrome(@NotNull String input) {
         char[] possiblePalindrome = input.toCharArray();
         if (possiblePalindrome.length < 2) {throw new IllegalArgumentException("String shall be not shorter than 2 characters!");}
         for (int i = 0, j = possiblePalindrome.length - 1; i < possiblePalindrome.length; i++, j--) {

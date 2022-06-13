@@ -13,9 +13,13 @@
 
 package _1nbetw33n._1NSIDE_STYX.MISC.C_Exercises.Exercise4;
 
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
+
 public class No1 {
 
-    static int[] createStaticArray(){
+    @Contract(pure = true)
+    static int @NotNull [] createStaticArray(){
         int[] staticIntArray = new int[10];
         for (int i = 0; i < staticIntArray.length; i++){
             staticIntArray[i] = i +1;
@@ -23,7 +27,7 @@ public class No1 {
         return staticIntArray;
     }
 
-    static void printIntArray(int[] array){
+    static void printIntArray(int @NotNull [] array){
         for(int integer : array){
             System.out.println(integer);
         }

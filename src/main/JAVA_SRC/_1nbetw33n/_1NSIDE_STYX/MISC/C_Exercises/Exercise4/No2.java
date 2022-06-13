@@ -26,14 +26,14 @@ public class No2 {
             throw new Exception("Outside of interval [0, infinity]");
         }
         int[] binaryString;
-        LinkedList<Integer> bytes = new LinkedList<>();
+        LinkedList<? super Integer> bytes = new LinkedList<>();
         while(integer > 0){
             bytes.addFirst(integer % 2);
             integer /= 2;
         }
         binaryString = new int[bytes.size()];
         for (int i = 0; i < binaryString.length; i++){
-            binaryString[i] = (bytes.removeFirst());
+            binaryString[i] = (int) bytes.removeFirst();
         }
         return binaryString;
     }

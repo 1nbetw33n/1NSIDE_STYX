@@ -35,17 +35,17 @@ public class No5 {
 
     @SuppressWarnings("SameParameterValue")
     static void countOccurrences(@NotNull String text, List< ? super Character> filterList){
-        int unknownCharacters = 0;
-        HashMap<? super Character, Integer> matches = new HashMap<>();
+        int unknownCharactersCount = 0;
+        HashMap<? super Character, ? super Integer> matches = new HashMap<>();
         List<? extends Character> textAsList = text.chars().mapToObj(c -> (char) c).collect(Collectors.toList());
     for (Character c : textAsList) {
         if (filterList.contains(c)) {
-            if (matches.containsKey(c)) {matches.put(c, (matches.get(c)) + 1);}
+            if (matches.containsKey(c)) {matches.put(c, ((int) matches.get(c)) + 1);}
             else {matches.put(c, 1);}
-        } else {if(c != ' '){unknownCharacters++;}}
+        } else {if(c != ' '){unknownCharactersCount++;}}
     }
     matches.forEach((key, value) -> System.out.println(key + ": " + value + "\n"));
-    System.out.println("unknown characters: " + unknownCharacters);
+    System.out.println("unknown characters: " + unknownCharactersCount);
     }
 
     public static void main(String[] args) {

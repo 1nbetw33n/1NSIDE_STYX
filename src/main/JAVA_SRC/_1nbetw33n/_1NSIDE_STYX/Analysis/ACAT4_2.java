@@ -59,36 +59,6 @@
          return 0.;
      }
 
-     /*
-     private static double nullstelleRecursive(Function f, double a, double b){
-        if (Math.abs(a-b) < 10E-6){
-            if(f.eval((a - b) / 2) * f.eval(b) < 0){
-                return nullstelleRecursive(f, (a + b) / 2, b);
-            } else {
-                return nullstelleRecursive(f, a, (a + b) / 2);
-            }
-        }
-         return (a + b) / 2;
-     }
-      */
-
-
-     private static double nullstelleIterative(Function<Double, Double> f, double a, double b) {
-         double center = 0.0;
-         while (Math.abs(a - b) >= 1E-6) {
-             center = (a + b) / 2;
-             if (f.apply(center) == 0) {
-                 break;
-             } else if (f.apply(a) * f.apply(center) < 0) {
-                 b = center;
-             } else {
-                 a = center;
-             }
-         }
-         return center;
-     }
-
-
      private static void testDelta1() {
          setUpDelta();
          System.out.println(delta1(x0, eps));

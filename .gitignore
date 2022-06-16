@@ -6,10 +6,3 @@
 /.idea/dataSources.local.xml
 /.gitignore
 /.idea/.gitignore
-*.class
-*.jar
-*.war
-*.ear
-*.logs
-*.iml
-.idea/

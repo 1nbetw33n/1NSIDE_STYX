@@ -31,7 +31,9 @@ public class SnakeMatrixIterator<T> implements Iterator<T> {
 
     public SnakeMatrixIterator(@NotNull T[][] snakeMatrix) {this.snakeMatrix = snakeMatrix;}
 
-    public boolean hasNext() {return i < snakeMatrix[0].length;}
+    public boolean hasNext() {
+        return i < snakeMatrix[0].length;
+    }
 
     public T next() {
         if (!hasNext()){throw new NoSuchElementException();}

@@ -31,7 +31,7 @@ public class LAMBDAS {
     static int ggT(int no1, int no2){
         int max = Math.max(no1, no2);
         int min = Math.min(no1, no2);
-        int remainder;
+        int remainder = 0;
         while (min > 0 ){
             remainder = Math.max(min, max) % Math.min(min, max);
             max = Math.min(min, max);

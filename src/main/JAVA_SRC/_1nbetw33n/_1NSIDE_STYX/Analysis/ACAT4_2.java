@@ -19,7 +19,6 @@
  package _1nbetw33n._1NSIDE_STYX.Analysis;
 
  import java.util.Scanner;
- import java.util.function.Function;
 
  public class ACAT4_2 {
 
@@ -55,16 +54,14 @@
          return Math.min(1, (eps * Math.sqrt(19 * x0 + 18)) / 19);
      }
 
-     private double eval(double x) {
-         return 0.;
-     }
-
+     @SuppressWarnings("unused")
      private static void testDelta1() {
          setUpDelta();
          System.out.println(delta1(x0, eps));
          tearDownDeltas();
      }
 
+     @SuppressWarnings("unused")
      private static void testDelta2() {
          setUpDelta();
          System.out.println(delta2(x0, eps));

@@ -26,7 +26,6 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/JAVA JUNIT TESTS" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/JAVA_SRC" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
-      <excludeFolder url="file://$MODULE_DIR$/.idea/rips" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

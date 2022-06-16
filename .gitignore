@@ -1,8 +1,9 @@
-target/
+/.idea/runConfigurations.xml
+1NSIDE_STYX.iml
+/.idea/workspace.xml
+/target/test-classes/_1nbetw33n/_1NSIDE_STYX/MISC/IngredientCheckerTest.class
+/target/classes/_1nbetw33n/_1NSIDE_STYX/MISC/IngredientChecker.class
+/.idea/dataSources.local.xml
+/.gitignore
+/.idea/.gitignore
 *.class
-*.jar
-*.war
-*.ear
-*.logs
-*.iml
-.idea/

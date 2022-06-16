@@ -21,7 +21,6 @@ package _1nbetw33n._1NSIDE_STYX.Analysis;
 
 import java.util.function.Function;
 
-@SuppressWarnings("unused")
 public class ACAT4_3 {
 
     private static double nullstelle(Function<Double, Double> f, double a, double b) {

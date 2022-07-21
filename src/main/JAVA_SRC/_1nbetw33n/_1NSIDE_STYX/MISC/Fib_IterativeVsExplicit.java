@@ -23,7 +23,8 @@ import java.math.BigInteger;
 
 public class Fib_IterativeVsExplicit {
 
-    private static class FibException extends Exception{
+    private static class
+    FibException extends Exception{
         private static final long serialVersionUID = 1L;
         public FibException(){
             super("n needs to be equal or greater than 0");

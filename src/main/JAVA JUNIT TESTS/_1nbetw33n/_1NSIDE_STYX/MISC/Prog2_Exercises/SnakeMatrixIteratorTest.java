@@ -12,14 +12,11 @@
  *
  */
 
-package _1nbetw33n._1NSIDE_STYX.MISC.SS22_Prog2_Exercises;
+package _1nbetw33n._1NSIDE_STYX.MISC.Prog2_Exercises;
 
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.util.function.Function;
 
 import static org.junit.jupiter.api.Assertions.*;
 

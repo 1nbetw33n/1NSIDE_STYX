@@ -12,7 +12,7 @@
  *
  */
 
-package _1nbetw33n._1NSIDE_STYX.MISC.SS22_Prog2_Exercises;
+package _1nbetw33n._1NSIDE_STYX.MISC.Prog2_Exercises;
 
 /*
  * Created by 0x1nbetw33n on 08/06/2022
@@ -26,7 +26,7 @@ import java.util.NoSuchElementException;
 
 public class SnakeMatrixIterator<T> implements Iterator<T> {
 
-    private T[][] snakeMatrix;
+    private final T[][] snakeMatrix;
     private int j, i;
 
     public SnakeMatrixIterator(@NotNull T[][] snakeMatrix) {this.snakeMatrix = snakeMatrix;}
